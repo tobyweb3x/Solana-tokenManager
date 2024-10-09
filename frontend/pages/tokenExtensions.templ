@@ -1,6 +1,6 @@
 package pages
 
-templ DashBoard() {
+templ TokenAccountExts() {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -20,7 +20,7 @@ templ DashBoard() {
 			<script src="/assets/libriaries/swiper-bundle.min.js"></script>
 			<title>Document</title>
 		</head>
-		<body class="overflow-hidden">
+		<body class="">
 			<div class="page flex bg-[#0c001b] text-neutral-200 gap-8 pr-6">
 				<div class="menuBar basis-3/12 h-screen px-4 pt-8 pb-0 flex flex-col justify-between items-start">
 					<nav class="h-[65%] p-1">
@@ -114,7 +114,7 @@ templ DashBoard() {
 				</div>
 				<div class="mainPage w-full">
 					<div class="connectWallet w-full inline-flex justify-end pt-3">
-						<div class="flex gap-1 rounded-full bg-purple-900 bg-opacity-40 p-2 text-start text-lg">
+						<div class="flex gap-1 py-1 px-4 rounded-full bg-purple-900 bg-opacity-40 text-start text-lg">
 							<img
 								src="/assets/images/solanaLogo2.jpeg"
 								class="w-10 h-10 rounded-3xl"
@@ -122,90 +122,88 @@ templ DashBoard() {
 							<button>Connect Wallet</button>
 						</div>
 					</div>
-					<p class="font-extrabold text-2xl italic font-serif mb-2">GM,</p>
-					<div class="flex gap-4 justify-between">
-						<div
-							class="bg-purple-700 h-48 flex w-full justify-between items-center rounded-xl 
-                     bg-[url('/assets/svg/create-new-folder.svg')] bg-cover bg-blend-multiply"
-						>
-							<!-- <div class="h-16 absolute items-center">
-                            <p class="text-center pl-4 relative bottom-1/2">No of Token22 created</p>
-                            <p class="text-center">49</p>
-                            <div class="relative top-2/3 flex gap-4 justify-around items-center px-4 text-center">
-                                <p>MainNet 30</p>
-                                <p>DevNet 12</p>
-                                <p>TestNet 7</p>
-                            </div>
-                        </div> -->
-						</div>
-						<div
-							class="bg-green-800 h-48 flex w-full justify-around items-center rounded-xl 
-                     bg-[url('/assets/svg/rocket-launch.svg')] bg-cover bg-blend-multiply"
-						>
-							<!-- <div class="h-16 absolute items-center">
-                            <p class="text-center relative bottom-1/2">No of Launched Token22</p>
-                            <p class="text-center">49</p>
-                            <div class="relative top-2/3 flex gap-4 justify-around items-center px-4 text-center">
-                                <p>MainNet 30</p>
-                                <p>DevNet 12</p>
-                                <p>TestNet 7</p>
-                            </div>
-                        </div> -->
-						</div>
-						<div
-							class="bg-purple-950 h-48 flex w-full justify-around items-center rounded-xl 
-                     bg-[url('/assets/svg/create-new-folder.svg')] bg-cover bg-blend-multiply"
-						>
-							<!-- <div class="h-16 absolute items-center">
-                            <p class="text-center relative bottom-1/2">No of unlaunched Token22</p>
-                            <p class="text-center">49</p>
-                            <div class="relative top-2/3 flex gap-4 justify-around items-center px-4 text-center">
-                                <p>MainNet 30</p>
-                                <p>DevNet 12</p>
-                                <p>TestNet 7</p>
-                            </div>
-                        </div> -->
-						</div>
-					</div>
-					<div class="flex w-full justify-between items-center mt-4">
-						<p class="text-2xl font-semibold">Token22 Created</p>
-						<div class="relative w-fit">
+					<div class=" backButtonSection flex justify-between mt-2">
+						<div class="flex gap-1 items-center">
 							<img
-								src="/assets/svg/MagnifyingGlass.svg"
+								src="/assets/svg/ArrowRight.svg"
 								alt=""
-								class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 pointer-events-none"
+								class="w-8 h-8"
 							/>
-							<input
-								type="text"
-								class="bg-transparent border-b border-purple-800 text-white pl-10 pr-10 py-2 focus:outline-none focus:border-b-purple-400
-                            transition-colors"
-							/>
-							<img
-								src="/assets/svg/Funnel.svg"
-								alt=""
-								class="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 pointer-events-none"
-							/>
+							<p class="font-bold text-lg">Back</p>
 						</div>
-					</div>
-					<div class="p-20 flex flex-col items-center justify-center gap-2">
-						<img
-							src="/assets/svg/empty-dashboard 1.svg"
-							alt=""
-							class="w-48 h-48"
-						/>
-						<p class="text-2xl font-bold">You don't have any Token22</p>
-						<p class="">Kindly create a new token via the create button below</p>
-						<button
-							class="flex gap-2 rounded-3xl px-20 py-2 justify-center items-center bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 text-white transition duration-500 ease-in-out focus:scale-y-110 focus:scale-x-110"
-						>
+						<div class="flex">
+							<p class="text-[#616161] text-lg">Dashboard</p>
 							<img
-								src="/assets/svg/Plus.svg"
+								src="/assets/svg/CaretRight.svg"
 								alt=""
 								class="w-6 h-6"
 							/>
-							<p class=" text-center">Create new Token22</p>
-						</button>
+							<p class="text-nowrap text-lg font-semibold">Token Account Extensions</p>
+						</div>
 					</div>
+					<div class="flex justify-between items-center py-8">
+						<p class="text-3xl font-semibold">Token Account Extensions</p>
+						<div class="flex w-fit items-center justify-center bg-black">
+							<div class="relative w-fit">
+								<div
+									class="absolute -inset-[0.15rem] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 opacity-15"
+								></div>
+								<button
+									class="relative w-fit rounded-xl bg-[#F5ECFF33] px-8 py-4 text-white flex gap-2 justify-center items-center"
+								>
+									<img
+										src="assets/svg/Swap.svg"
+										alt=""
+									/>
+									<p class="text-[#FFFFFF] font-bold bg-clip-text text-transparent">
+										Change To Mint Account Extensions
+									</p>
+								</button>
+							</div>
+						</div>
+					</div>
+					<p class="text-3xl font-[400]">Here are the various extension in the mint account</p>
+					<p class="font-[400]">
+						Note, some extension are dependent on another, so if such extension is
+						used, you automatically use
+						its dependent
+					</p>
+					<div class="flex flex-wrap gap-4 mt-10">
+						<div class="py-4 px-4 rounded-2xl flex gap-2 justify-center items-center bg-[#FFFFFF0D]">
+							<p>Metadata & Metadata pointer extension</p>
+							<img
+								src="/assets/svg/Info.svg"
+								alt=""
+								class="font-semibold"
+							/>
+						</div>
+						<div class="py-4 px-4 rounded-2xl flex gap-2 justify-center items-center bg-[#FFFFFF0D]">
+							<p>Metadata & Metadata pointer extension</p>
+							<img
+								src="/assets/svg/Info.svg"
+								alt=""
+								class="font-semibold"
+							/>
+						</div>
+						<div class="py-4 px-4 rounded-2xl flex gap-2 justify-center items-center bg-[#FFFFFF0D]">
+							<p>Metadata & Metadata pointer extension</p>
+							<img
+								src="/assets/svg/Info.svg"
+								alt=""
+								class="font-semibold"
+							/>
+						</div>
+					</div>
+					<button
+						class="mt-10 ml-auto flex gap-2 rounded-3xl px-20 py-4 justify-center items-center bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 text-white transition duration-500 ease-in-out focus:scale-y-110 focus:scale-x-110"
+					>
+						<p class=" text-center">Add token account extensions</p>
+						<img
+							src="/assets/svg/ArrowRight.svg"
+							alt=""
+							class="w-6 h-6 rotate-180"
+						/>
+					</button>
 				</div>
 			</div>
 		</body>
