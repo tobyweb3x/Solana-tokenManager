@@ -55,6 +55,7 @@ async function createToken22TokenAccExtension(serializedData:dataObject) {
     ...instructions,
     );
 
+    //  send, sign & await transaction
     const transactionSignature = await sendAndConfirmTransaction(
         connection,
         transaction,

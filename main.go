@@ -1,7 +1,5 @@
 package main
 
-
-
 type ExtensionType int
 
 const (
