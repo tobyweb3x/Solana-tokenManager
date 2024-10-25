@@ -1,1 +1,1 @@
-package frontend
+package main

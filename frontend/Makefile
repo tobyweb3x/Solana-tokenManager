@@ -1,12 +1,16 @@
+format:
+	@templ fmt .
+
 generate:
-	@tailwindcss -i assets/styles/input.css  -o assets/styles/output.css
-	@templ generate && templ fmt . 
+	@templ generate 
 
 dev:
-	@go generate && templ generate --watch --proxy="http://localhost:8080" --open-browser=false -v
+	@templ generate --watch --proxy="http://localhost:8080" --open-browser=false -v
 
 tailwind:
-	@tailwindcss -i assets/styles/input.css  -o assets/styles/output.css --watch
+	@tailwindcss -i assets/styles/input.css  -o assets/styles/output.css --watch --minify
 
+run:
+	air
 
-.PHONY: generate dev tailwind
+.PHONY: format generate dev run tailwind
