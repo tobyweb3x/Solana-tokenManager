@@ -29,7 +29,7 @@ func Spa() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link rel=\"stylesheet\" href=\"/assets/styles/output.css\"><link rel=\"stylesheet\" href=\"/assets/libriaries/swiper-bundle.min.css\"><script src=\"/assets/libriaries/swiper-bundle.min.js\"></script><title>Document</title></head><body class=\" font-ArchivoSemiCondensed_Regular text-[#EBEBEB] bg-[#06001B]\"><div class=\"grid grid-cols-bodyLayout\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link rel=\"stylesheet\" href=\"/assets/styles/output.css\"><link rel=\"stylesheet\" href=\"/assets/libriaries/swiper-bundle.min.css\"><script src=\"/assets/libriaries/swiper-bundle.min.js\"></script><script src=\"/assets/libriaries/htmx.min.js\"></script><script src=\"/assets/libriaries/hyperscript.min.js\"></script><title>Document</title></head><body class=\" font-ArchivoSemiCondensed_Regular text-[#EBEBEB] bg-[#06001B]\"><div class=\"grid grid-cols-bodyLayout\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -45,11 +45,19 @@ func Spa() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = TokenExtensionsShowPage().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = MintExtensionsShowPage().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div></body>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = createNewTokenModal().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

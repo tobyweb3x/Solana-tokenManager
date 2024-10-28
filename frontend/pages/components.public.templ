@@ -17,7 +17,7 @@ templ menuBar() {
 					<li>
 						<a
 							href="#dashboard"
-							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-custom-gradient transition duration-500 ease-in-out"
+							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
 						>
 							<img
 								src="/assets/svg/Home.svg"
@@ -31,7 +31,7 @@ templ menuBar() {
 					<li>
 						<a
 							href="#dashboard"
-							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-custom-gradient transition duration-500 ease-in-out"
+							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
 						>
 							<img
 								src="/assets/svg/Records.svg"
@@ -45,7 +45,7 @@ templ menuBar() {
 					<li>
 						<a
 							href="#dashboard"
-							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-custom-gradient transition duration-500 ease-in-out"
+							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
 						>
 							<img
 								src="/assets/svg/Update token.svg"
@@ -59,7 +59,7 @@ templ menuBar() {
 					<li>
 						<a
 							href="#dashboard"
-							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-custom-gradient transition duration-500 ease-in-out"
+							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
 						>
 							<img
 								src="/assets/svg/Launch token.svg"
@@ -73,7 +73,7 @@ templ menuBar() {
 					// <li>
 					// 	<a
 					// 		href="#dashboard"
-					// 		class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-custom-gradient transition duration-500 ease-in-out"
+					// 		class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
 					// 	>
 					// 		<img
 					// 			src="/assets/svg/Launch token.svg"
@@ -87,7 +87,7 @@ templ menuBar() {
 					<li>
 						<a
 							href="#dashboard"
-							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-custom-gradient transition duration-500 ease-in-out"
+							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
 						>
 							<img
 								src="/assets/svg/Quit program.svg"
@@ -104,6 +104,7 @@ templ menuBar() {
 		<a
 			href="#create"
 			class="mx-auto bg-CreateToken22 flex justify-center items-center gap-2 rounded-3xl text-sm font-bold"
+			onclick=""
 		>
 			<img
 				src="assets/svg/Plus.svg"
@@ -112,17 +113,34 @@ templ menuBar() {
 			<p
 				class="w-36 aspect-[116/10] tracking-[0.001em] text-center my-[1.438rem] mr-[1.639rem] text-[#FDFDFD]"
 			>
-				Create New Token22
+				Create New Token
 			</p>
 		</a>
 		<section class="text-center inline-flex gap-4 justify-center">
 			<a
-				href="http://"
+				href="https://vividpass.xyz"
 				class=""
 			>Built by VividPass</a>
 			<a href="http://">Version: 1.0.0</a>
 		</section>
 	</div>
+	<script type="text/javascript">
+		function openCreateNewTokenModal() {
+			 const modal = document.getElementById( 'createNewTokenModal' );
+                if ( modal )
+                {
+                    modal.showModal();
+                }
+		}
+
+		function closeCreateNewTokenModal () {
+                const modal = document.getElementById( 'createNewTokenModal' );
+                if ( modal )
+                {
+                    modal.close();
+                }
+            };
+	</script>
 }
 
 templ connectWallet() {
@@ -176,22 +194,17 @@ templ backButtonAndTextDirection(direction []DirectionParams) {
 }
 
 templ extensionWithSwitchExtensionButton(extension, href string) {
-	<div class="flex justify-between items-center mr-10">
-		<div class="w-full flex justify-between items-center">
-			<p class="text-[2.25rem] leading-[2.75rem] text-left font-normal font-ArchivoSemiCondensed_SemiBold">{ fmt.Sprintf("%s Account Extensions", extension) }</p>
-			<a href={ templ.SafeURL(href) } class="gradientButton flex justify-center items-center gap-2 py-[1.031rem] px-[2.375rem] max-lg:px-4 rounded-3xl border-[1px] border-transparent border-solid">
-				<img
-					src="assets/svg/Swap.svg"
-					class="w-6 max-lg:w-4 aspect-square"
-				/>
-				<p class="text-[#FFFFFF] text-nowrap text-sm max-lg:text-xs text-center tracking-[0.001em] font-bold">
-					{ fmt.Sprintf("Change To %s Account Extensions", extension) }
-				</p>
-			</a>
-			// <a href={ templ.SafeURL(href) }>
-			// 	<img src="/assets/svg/mintChangeButton.svg" alt="" class="w-[19.688rem] aspect-[315/57]">
-			// </a>
-		</div>
+	<div class="w-full flex justify-between items-center gap-1 pr-10">
+		<p class="text-[2.25rem] leading-[2.75rem] text-left font-normal font-ArchivoSemiCondensed_SemiBold">{ fmt.Sprintf("%s Account Extensions", extension) }</p>
+		<a href={ templ.SafeURL(href) } class="gradientButton flex justify-center items-center gap-2 py-[1.031rem] px-[2.375rem] max-lg:px-4 rounded-3xl border-[1px] border-transparent border-solid">
+			<img
+				src="assets/svg/Swap.svg"
+				class="w-6 max-lg:w-4 aspect-square"
+			/>
+			<p class="text-[#FFFFFF] text-nowrap text-sm max-lg:text-xs text-center tracking-[0.001em] font-bold">
+				{ fmt.Sprintf("Change To %s Account Extensions", extension) }
+			</p>
+		</a>
 	</div>
 }
 

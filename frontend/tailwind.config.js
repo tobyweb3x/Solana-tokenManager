@@ -26,6 +26,7 @@ module.exports = {
       backgroundImage: {
         'CreateToken22': 'linear-gradient(88.93deg, #9945FF -4.48%, #12DB88 114.18%)',
         'swiperGradient': 'linear-gradient(90deg, #AD6AFF 0%, #12DB88 100%)',
+        'menuGradient': 'linear-gradient(88.93deg, rgba(153, 69, 255, 0.2) -4.48%, rgba(18, 219, 136, 0.2) 114.18%);'
       },
     },
   },
