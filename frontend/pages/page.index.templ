@@ -27,13 +27,24 @@ templ Spa() {
 				@menuBar()
 				<div class="focusBar">
 					@connectWallet()
-					// @Dashboard()
-					@MintExtensionsShowPage()
+					@Dashboard()
+					// @MintExtensionsShowPage()
 					// @TokenExtensionsShowPage()
 					// @MintExtensions()
 				</div>
 			</div>
 		</body>
-		@createNewTokenModal()
+		@dialogPageOne()
+		@dialogPageTwo()
+		@dialogPageThree()
+		@dialogPageFour()
+		<script>
+			function openDialog() {
+				// document.getElementById('dialogPageOne').showModal();
+				// document.getElementById('dialogPageTwo').showModal();
+				// document.getElementById('dialogPageThree').showModal();
+				document.getElementById('dialogPageFour').showModal();
+			}
+		</script>
 	</html>
 }

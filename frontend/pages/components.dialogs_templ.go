@@ -8,7 +8,9 @@ package pages
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func createNewTokenModal() templ.Component {
+import "fmt"
+
+func forwardAndBackwardBtn(backwardBtnID, forwardBtnID string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -29,7 +31,420 @@ func createNewTokenModal() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<dialog id=\"createNewToken\"></dialog>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-full mt-10 flex justify-end items-center gap-4\"><button id=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var2 string
+		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(backwardBtnID)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/components.dialogs.templ`, Line: 7, Col: 28}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"py-[1.197rem] px-[1.197rem] rounded-3xl bg-[#FFFFFF1A]\"><img src=\"/assets/svg/continue.svg\" alt=\"\" class=\"rotate-180 w-[0.545rem] m-[0.276rem] aspect-square\"></button> <button disabled id=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var3 string
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(forwardBtnID)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/components.dialogs.templ`, Line: 10, Col: 36}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" type=\"button\" class=\"opacity-40 flex gap-2 items-center py-[1.219rem] px-[2.196rem] rounded-3xl bg-CreateToken22\"><p class=\"text-sm font-bold tracking-[0.001em] text-[#FDFDFD]\">Continue </p><img src=\"/assets/svg/continue.svg\" alt=\"\" class=\"w-[0.545rem] m-[0.276rem] aspect-square\"></button></div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+func dialogPageNumberAndCloseBtn(pageNumber, dialogID string) templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var4 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var4 == nil {
+			templ_7745c5c3_Var4 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"flex justify-between items-center gap-[28.25rem] text-[#A3A3A3]\"><p class=\"font-medium text-2xl leading-[1.816rem] text-center\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var5 string
+		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(pageNumber)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/components.dialogs.templ`, Line: 19, Col: 77}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><button _=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var6 string
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("on click call %s.close() then call %sForm.reset() then remove .gradientRadio from <%s .wrapperDivOnInput/> then add .opacity-40 to %sContinueBtn then add @disabled to %sContinueBtn", dialogID, dialogID, dialogID, dialogID, dialogID))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/components.dialogs.templ`, Line: 20, Col: 259}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><img src=\"/assets/svg/close.svg\" alt=\"\" class=\"w-[1.766rem] aspect-square m-[0.366rem]\"></button></section>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+func dialogTitleText(titleText string) templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var7 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var7 == nil {
+			templ_7745c5c3_Var7 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<p class=\"font-normal text-2xl text-center my-10 text-white\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var8 string
+		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(titleText)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/components.dialogs.templ`, Line: 27, Col: 73}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+func makeGradientRadioBorder() templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var9 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var9 == nil {
+			templ_7745c5c3_Var9 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<style>\n\t\t.gradientRadio {\n\t\t\tbackground: \n\t\t\t\tlinear-gradient(black 0 0) padding-box, /* this is your background */\n\t\t\t\tlinear-gradient(90deg, #AD6AFF 0%, #12DB88 100%) border-box;\n\t\t\tborder-radius: 16px;\n\t\t\tborder: 1px solid transparent;\n\t\t\topacity: 0px;\n\t\t}\n\t\t</style>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+var dialogScripts = templ.NewOnceHandle()
+
+func scriptForDialogs() templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var10 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var10 == nil {
+			templ_7745c5c3_Var10 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Var11 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+			if !templ_7745c5c3_IsBuffer {
+				defer func() {
+					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+					if templ_7745c5c3_Err == nil {
+						templ_7745c5c3_Err = templ_7745c5c3_BufErr
+					}
+				}()
+			}
+			ctx = templ.InitializeContext(ctx)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script type=\"text/javascript\">\n\t\tfunction handleRadioClickDialogOne(param) {\n\t\t\tconst dialogPageOneContinueBtn = document.getElementById('dialogPageOneContinueBtn');\n\t\t\tdialogPageOneContinueBtn.disabled = false;\n\t\t\tdialogPageOneContinueBtn.classList.remove('opacity-40');\n\n\n\t\t\tconst parentDivs = document.querySelectorAll('#dialogPageOne .wrapperDivOnInput');\n\t\t\tparentDivs.forEach(div => {\n\t\t\t\tdiv.classList.remove('gradientRadio');\n\t\t\t});\n\n\t\t\tparam.classList.add('gradientRadio');\n\t\t}\n\n\t\tfunction handleRadioClickDialogTwo(param) {\n\t\t\tconst dialogPageTwoContinueBtn = document.getElementById('dialogPageTwoContinueBtn');\n\t\t\tdialogPageTwoContinueBtn.disabled = false;\n\t\t\tdialogPageTwoContinueBtn.classList.remove('opacity-40');\n\n\n\t\t\tconst parentDivs = document.querySelectorAll('#dialogPageTwo .wrapperDivOnInput');\n\t\t\tparentDivs.forEach(div => {\n\t\t\t\tdiv.classList.remove('gradientRadio');\n\t\t\t});\n\n\t\t\tparam.classList.add('gradientRadio');\n\t\t}\n\n\t\tconst form = document.getElementById('dialogPageThreeForm');\n\t\tconst continueButton = document.getElementById('dialogPageThreeContinueBtn');\n            \n\t\tfunction checkFormValidity() {\n\t\t\tif (form.checkValidity()) {\n\t\t\t\tcontinueButton.disabled = false;\n\t\t\t\tcontinueButton.classList.remove('opacity-40');\n\t\t\t} else {\n\t\t\t\tcontinueButton.disabled = true;\n\t\t\t\tcontinueButton.classList.add('opacity-40');\n\t\t\t}\n\t\t}\n\n\t\tform.addEventListener('input', checkFormValidity);\n\t</script>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			return templ_7745c5c3_Err
+		})
+		templ_7745c5c3_Err = dialogScripts.Once().Render(templ.WithChildren(ctx, templ_7745c5c3_Var11), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+func dialogPageOne() templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var12 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var12 == nil {
+			templ_7745c5c3_Var12 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<dialog id=\"dialogPageOne\" class=\"bg-[#0A041F] px-10 pt-[4.531rem] pb-[10.531rem] rounded-3xl border-solid border-[0.0625rem] border-[#FFFFFF0D] backdrop:backdrop-blur-sm\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = dialogPageNumberAndCloseBtn("1/4", "#dialogPageOne").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = dialogTitleText("What Token Standard?").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<form action=\"\" id=\"dialogPageOneForm\"><div class=\"wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6\" onclick=\"handleRadioClickDialogOne(this)\"><input type=\"radio\" name=\"pageOne\" id=\"token22\" value=\"tpken22\" class=\"w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem] \"> <label for=\"token22\"><p class=\"text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left\">Token22</p><p class=\"text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left\">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p></label></div><div class=\"wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6\" onclick=\"handleRadioClickDialogOne(this)\"><input type=\"radio\" name=\"pageOne\" id=\"zkTokens\" value=\"zkTokens\" class=\"w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem]\"> <label for=\"zkTokens\"><p class=\"text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left\">zk-Compressed Tokens</p><p class=\"text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left\">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p></label></div><div class=\"wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6\" onclick=\"handleRadioClickDialogOne(this)\"><input type=\"radio\" name=\"pageOne\" id=\"nanoTokens\" value=\"nanoTokens\" class=\"w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem]\"> <label for=\"nanoTokens\"><p class=\"text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left\">NanoTokens</p><p class=\"text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left\">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p></label></div><button disabled id=\"dialogPageOneContinueBtn\" type=\"button\" class=\"opacity-40 ml-auto mt-10 flex gap-2 items-center py-[1.219rem] px-[2.196rem] rounded-3xl bg-CreateToken22\"><p class=\"text-sm font-bold tracking-[0.001em] text-[#FDFDFD]\">Continue</p><img src=\"/assets/svg/continue.svg\" alt=\"\" class=\"w-[0.545rem] m-[0.276rem] aspect-square\"></button></form>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = scriptForDialogs().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = makeGradientRadioBorder().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</dialog>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+func dialogPageTwo() templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var13 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var13 == nil {
+			templ_7745c5c3_Var13 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<dialog id=\"dialogPageTwo\" class=\"bg-[#0A041F] px-10 pt-[4.531rem] pb-[10.531rem] rounded-3xl border-solid border-[0.0625rem] border-[#FFFFFF0D] backdrop:backdrop-blur-sm\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = dialogPageNumberAndCloseBtn("2/4", "#dialogPageTwo").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = dialogTitleText("What type of token is this?").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<form action=\"\" id=\"dialogPageTwoForm\"><div class=\"wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6\" onclick=\"handleRadioClickDialogTwo(this)\"><input type=\"radio\" name=\"pageTwo\" id=\"tokens\" value=\"tokens\" class=\"w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem] \"> <label for=\"tokens\"><p class=\"text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left\">Fungible Tokens</p><p class=\"text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left\">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p></label></div><div class=\"wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6\" onclick=\"handleRadioClickDialogTwo(this)\"><input type=\"radio\" name=\"pageTwo\" id=\"sft\" value=\"sft\" class=\"w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem]\"> <label for=\"sft\"><p class=\"text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left\">SemiFungible Tokens (SFTs)</p><p class=\"text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left\">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p></label></div><div class=\"wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6\" onclick=\"handleRadioClickDialogTwo(this)\"><input type=\"radio\" name=\"pageTwo\" id=\"nft\" value=\"nft\" class=\"w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem]\"> <label for=\"nft\"><p class=\"text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left\">NonFungible Tokens (NFTs)</p><p class=\"text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left\">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p></label></div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = forwardAndBackwardBtn("dialogPageTwoBackBtn", "dialogPageTwoContinueBtn").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</form>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = scriptForDialogs().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = makeGradientRadioBorder().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</dialog>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+func dialogPageThree() templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var14 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var14 == nil {
+			templ_7745c5c3_Var14 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<dialog id=\"dialogPageThree\" class=\"bg-[#0A041F] px-10 pt-[4.531rem] pb-20 rounded-3xl border-solid border-[0.0625rem] border-[#FFFFFF0D] backdrop:backdrop-blur-sm\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = dialogPageNumberAndCloseBtn("3/4", "#dialogPageThree").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = dialogTitleText("Lets know more about your token").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<form action=\"\" id=\"dialogPageThreeForm\" class=\"text-[#EBEBEB]\"><div class=\"wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex flex-col gap-4\"><label for=\"tokenName\" class=\"text-lg font-normal tracking-[0.005em]\">Token name</label> <input required type=\"text\" name=\"pageThree\" id=\"tokenName\" value=\"\" placeholder=\"Enter Token name\" class=\"w-[33.563rem] aspect-[537/56] placeholder:text-[#616161] placeholder:text-xs placeholder:font-bold placeholder:tracking-[0.005em] pl-2 bg-inherit rounded-3xl border-solid border-[#D1D1D1] border-[0.0313rem]\"></div><div class=\"wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex flex-col gap-4\"><label for=\"tokenSymbol\" class=\"text-lg font-normal tracking-[0.005em]\">Token symbol</label> <input required type=\"text\" name=\"pageThree\" id=\"tokenSymbol\" value=\"\" placeholder=\"Enter Token symbol\" class=\"w-[33.563rem] aspect-[537/56] placeholder:text-[#616161] placeholder:text-xs placeholder:font-bold placeholder:tracking-[0.005em] pl-2 bg-inherit rounded-3xl border-solid border-[#D1D1D1] border-[0.0313rem]\"></div><div class=\"wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex flex-col gap-4\"><label for=\"tokenAvatar\" class=\"text-lg font-normal tracking-[0.005em]\">Token Image</label> <input required type=\"url\" name=\"pageThree\" id=\"tokenAvatar\" value=\"\" placeholder=\"Enter Token image URL\" class=\"w-[33.563rem] aspect-[537/56] placeholder:text-[#616161] placeholder:text-xs placeholder:font-bold placeholder:tracking-[0.005em] pl-2 bg-inherit rounded-3xl border-solid border-[#D1D1D1] border-[0.0313rem]\"></div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = forwardAndBackwardBtn("dialogPageThreeBackBtn", "dialogPageThreeContinueBtn").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</form>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = scriptForDialogs().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</dialog>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+func dialogPageFour() templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var15 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var15 == nil {
+			templ_7745c5c3_Var15 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<dialog id=\"dialogPageFour\" class=\"bg-[#0A041F] px-10 pt-[4.531rem] pb-[10.531rem] rounded-3xl border-solid border-[0.0625rem] border-[#FFFFFF0D] backdrop:backdrop-blur-sm\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = dialogPageNumberAndCloseBtn("4/4", "#dialogPageFour").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = dialogTitleText("Generate mint address").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"grid grid-cols-2 gap-4 justify-center items-center bg-[#FFFFFF1A] p-2 rounded-3xl\"><button autofocus class=\"py-[1.188rem] px-[3.984rem] focus:bg-red-600 rounded-3xl  border-[0.103rem] border-transparent border-solid\"><p class=\"text-[#FFFFFF] text-nowrap text-sm text-center tracking-[0.001em] font-bold\">Generate Random</p></button> <button class=\"py-[1.188rem] px-[3.984rem] focus:bg-red-600 focus:rounded-3xl focus:border-[0.103rem] focus:border-transparent focus:border-solid\"><p class=\"text-[#FFFFFF] text-nowrap text-sm text-center tracking-[0.001em] font-bold\">Customize</p></button></section><section class=\"w-full h-full flex justify-center items-center mt-[7.5rem]\"><div><p class=\"text-[1.375rem] leading-7 font-normal -tracking-[0.0025em] text-[#EBEBEB] text-center\">A random mint address would be <br>generated for your token</p><section class=\"w-full mt-10 flex justify-center items-center gap-4\"><button id=\"dialogPageFourBackBtn\" class=\"py-[1.197rem] px-[1.197rem] rounded-3xl bg-[#FFFFFF1A]\"><img src=\"/assets/svg/continue.svg\" alt=\"\" class=\"rotate-180 w-[0.545rem] m-[0.276rem] aspect-square\"></button> <button id=\"dialogPageFourContinueBtn\" type=\"button\" class=\"flex gap-2 items-center py-[1.219rem] px-[2.196rem] rounded-3xl bg-CreateToken22\"><p class=\"text-sm font-bold tracking-[0.001em] text-[#FDFDFD]\">Continue </p><img src=\"/assets/svg/continue.svg\" alt=\"\" class=\"w-[0.545rem] m-[0.276rem] aspect-square\"></button></section></div></section></dialog>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

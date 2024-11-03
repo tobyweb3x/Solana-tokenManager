@@ -2,7 +2,8 @@ format:
 	@templ fmt .
 
 generate:
-	@templ generate 
+	@tailwindcss -i assets/styles/input.css  -o assets/styles/output.css --minify
+	@templ generate && templ fmt .
 
 dev:
 	@templ generate --watch --proxy="http://localhost:8080" --open-browser=false -v

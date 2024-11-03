@@ -45,7 +45,7 @@ func Spa() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = MintExtensionsShowPage().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Dashboard().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -53,11 +53,23 @@ func Spa() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = createNewTokenModal().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = dialogPageOne().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</html>")
+		templ_7745c5c3_Err = dialogPageTwo().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = dialogPageThree().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = dialogPageFour().Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n\t\t\tfunction openDialog() {\n\t\t\t\t// document.getElementById('dialogPageOne').showModal();\n\t\t\t\t// document.getElementById('dialogPageTwo').showModal();\n\t\t\t\t// document.getElementById('dialogPageThree').showModal();\n\t\t\t\tdocument.getElementById('dialogPageFour').showModal();\n\t\t\t}\n\t\t</script></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

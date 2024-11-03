@@ -1,5 +1,217 @@
 package pages
 
-templ createNewTokenModal() {
-	<dialog id="createNewToken"></dialog>
+import "fmt"
+
+templ forwardAndBackwardBtn(backwardBtnID, forwardBtnID string) {
+	<div class="w-full mt-10 flex justify-end items-center gap-4">
+		<button id={ backwardBtnID } class="py-[1.197rem] px-[1.197rem] rounded-3xl bg-[#FFFFFF1A]">
+			<img src="/assets/svg/continue.svg" alt="" class="rotate-180 w-[0.545rem] m-[0.276rem] aspect-square"/>
+		</button>
+		<button disabled id={ forwardBtnID } type="button" class="opacity-40 flex gap-2 items-center py-[1.219rem] px-[2.196rem] rounded-3xl bg-CreateToken22">
+			<p class="text-sm font-bold tracking-[0.001em] text-[#FDFDFD]">Continue </p>
+			<img src="/assets/svg/continue.svg" alt="" class="w-[0.545rem] m-[0.276rem] aspect-square"/>
+		</button>
+	</div>
+}
+
+templ dialogPageNumberAndCloseBtn(pageNumber, dialogID string) {
+	<section class="flex justify-between items-center gap-[28.25rem] text-[#A3A3A3]">
+		<p class="font-medium text-2xl leading-[1.816rem] text-center">{ pageNumber }</p>
+		<button _={ fmt.Sprintf("on click call %s.close() then call %sForm.reset() then remove .gradientRadio from <%s .wrapperDivOnInput/> then add .opacity-40 to %sContinueBtn then add @disabled to %sContinueBtn", dialogID, dialogID, dialogID, dialogID, dialogID) }>
+			<img src="/assets/svg/close.svg" alt="" class="w-[1.766rem] aspect-square m-[0.366rem]"/>
+		</button>
+	</section>
+}
+
+templ dialogTitleText(titleText string) {
+	<p class="font-normal text-2xl text-center my-10 text-white">{ titleText }</p>
+}
+
+templ makeGradientRadioBorder() {
+	<style>
+		.gradientRadio {
+			background: 
+				linear-gradient(black 0 0) padding-box, /* this is your background */
+				linear-gradient(90deg, #AD6AFF 0%, #12DB88 100%) border-box;
+			border-radius: 16px;
+			border: 1px solid transparent;
+			opacity: 0px;
+		}
+		</style>
+}
+
+var dialogScripts = templ.NewOnceHandle()
+
+templ scriptForDialogs() {
+	@dialogScripts.Once() {
+		<script type="text/javascript">
+		function handleRadioClickDialogOne(param) {
+			const dialogPageOneContinueBtn = document.getElementById('dialogPageOneContinueBtn');
+			dialogPageOneContinueBtn.disabled = false;
+			dialogPageOneContinueBtn.classList.remove('opacity-40');
+
+
+			const parentDivs = document.querySelectorAll('#dialogPageOne .wrapperDivOnInput');
+			parentDivs.forEach(div => {
+				div.classList.remove('gradientRadio');
+			});
+
+			param.classList.add('gradientRadio');
+		}
+
+		function handleRadioClickDialogTwo(param) {
+			const dialogPageTwoContinueBtn = document.getElementById('dialogPageTwoContinueBtn');
+			dialogPageTwoContinueBtn.disabled = false;
+			dialogPageTwoContinueBtn.classList.remove('opacity-40');
+
+
+			const parentDivs = document.querySelectorAll('#dialogPageTwo .wrapperDivOnInput');
+			parentDivs.forEach(div => {
+				div.classList.remove('gradientRadio');
+			});
+
+			param.classList.add('gradientRadio');
+		}
+
+		const form = document.getElementById('dialogPageThreeForm');
+		const continueButton = document.getElementById('dialogPageThreeContinueBtn');
+            
+		function checkFormValidity() {
+			if (form.checkValidity()) {
+				continueButton.disabled = false;
+				continueButton.classList.remove('opacity-40');
+			} else {
+				continueButton.disabled = true;
+				continueButton.classList.add('opacity-40');
+			}
+		}
+
+		form.addEventListener('input', checkFormValidity);
+	</script>
+	}
+}
+
+templ dialogPageOne() {
+	<dialog id="dialogPageOne" class="bg-[#0A041F] px-10 pt-[4.531rem] pb-[10.531rem] rounded-3xl border-solid border-[0.0625rem] border-[#FFFFFF0D] backdrop:backdrop-blur-sm">
+		@dialogPageNumberAndCloseBtn("1/4", "#dialogPageOne")
+		@dialogTitleText("What Token Standard?")
+		<form action="" id="dialogPageOneForm">
+			<div class="wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6" onclick="handleRadioClickDialogOne(this)">
+				<input type="radio" name="pageOne" id="token22" value="tpken22" class="w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem] "/>
+				<label for="token22">
+					<p class="text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left">Token22</p>
+					<p class="text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p>
+				</label>
+			</div>
+			<div class="wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6" onclick="handleRadioClickDialogOne(this)">
+				<input type="radio" name="pageOne" id="zkTokens" value="zkTokens" class="w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem]"/>
+				<label for="zkTokens">
+					<p class="text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left">zk-Compressed Tokens</p>
+					<p class="text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p>
+				</label>
+			</div>
+			<div class="wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6" onclick="handleRadioClickDialogOne(this)">
+				<input type="radio" name="pageOne" id="nanoTokens" value="nanoTokens" class="w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem]"/>
+				<label for="nanoTokens">
+					<p class="text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left">NanoTokens</p>
+					<p class="text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p>
+				</label>
+			</div>
+			<button disabled id="dialogPageOneContinueBtn" type="button" class="opacity-40 ml-auto mt-10 flex gap-2 items-center py-[1.219rem] px-[2.196rem] rounded-3xl bg-CreateToken22">
+				<p class="text-sm font-bold tracking-[0.001em] text-[#FDFDFD]">Continue</p>
+				<img src="/assets/svg/continue.svg" alt="" class="w-[0.545rem] m-[0.276rem] aspect-square"/>
+			</button>
+		</form>
+		@scriptForDialogs()
+		@makeGradientRadioBorder()
+	</dialog>
+}
+
+templ dialogPageTwo() {
+	<dialog id="dialogPageTwo" class="bg-[#0A041F] px-10 pt-[4.531rem] pb-[10.531rem] rounded-3xl border-solid border-[0.0625rem] border-[#FFFFFF0D] backdrop:backdrop-blur-sm">
+		@dialogPageNumberAndCloseBtn("2/4", "#dialogPageTwo")
+		@dialogTitleText("What type of token is this?")
+		<form action="" id="dialogPageTwoForm">
+			<div class="wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6" onclick="handleRadioClickDialogTwo(this)">
+				<input type="radio" name="pageTwo" id="tokens" value="tokens" class="w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem] "/>
+				<label for="tokens">
+					<p class="text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left">Fungible Tokens</p>
+					<p class="text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p>
+				</label>
+			</div>
+			<div class="wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6" onclick="handleRadioClickDialogTwo(this)">
+				<input type="radio" name="pageTwo" id="sft" value="sft" class="w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem]"/>
+				<label for="sft">
+					<p class="text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left">SemiFungible Tokens (SFTs)</p>
+					<p class="text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p>
+				</label>
+			</div>
+			<div class="wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex justify-center items-center gap-6" onclick="handleRadioClickDialogTwo(this)">
+				<input type="radio" name="pageTwo" id="nft" value="nft" class="w-[1.275rem] aspect-square opacity-70 rounded-[0.0231rem]"/>
+				<label for="nft">
+					<p class="text-[#EBEBEB] font-normal text-[1.375rem] leading-7 -tracking-[0.0025em] text-left">NonFungible Tokens (NFTs)</p>
+					<p class="text-[#A3A3A3] font-normal text-sm tracking-[0.004em] text-left">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis</p>
+				</label>
+			</div>
+			@forwardAndBackwardBtn("dialogPageTwoBackBtn", "dialogPageTwoContinueBtn")
+		</form>
+		@scriptForDialogs()
+		@makeGradientRadioBorder()
+	</dialog>
+}
+
+templ dialogPageThree() {
+	<dialog id="dialogPageThree" class="bg-[#0A041F] px-10 pt-[4.531rem] pb-20 rounded-3xl border-solid border-[0.0625rem] border-[#FFFFFF0D] backdrop:backdrop-blur-sm">
+		@dialogPageNumberAndCloseBtn("3/4", "#dialogPageThree")
+		@dialogTitleText("Lets know more about your token")
+		<form action="" id="dialogPageThreeForm" class="text-[#EBEBEB]">
+			<div class="wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex flex-col gap-4">
+				<label for="tokenName" class="text-lg font-normal tracking-[0.005em]">Token name</label>
+				<input required type="text" name="pageThree" id="tokenName" value="" placeholder="Enter Token name" class="w-[33.563rem] aspect-[537/56] placeholder:text-[#616161] placeholder:text-xs placeholder:font-bold placeholder:tracking-[0.005em] pl-2 bg-inherit rounded-3xl border-solid border-[#D1D1D1] border-[0.0313rem]"/>
+			</div>
+			<div class="wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex flex-col gap-4">
+				<label for="tokenSymbol" class="text-lg font-normal tracking-[0.005em]">Token symbol</label>
+				<input required type="text" name="pageThree" id="tokenSymbol" value="" placeholder="Enter Token symbol" class="w-[33.563rem] aspect-[537/56] placeholder:text-[#616161] placeholder:text-xs placeholder:font-bold placeholder:tracking-[0.005em] pl-2 bg-inherit rounded-3xl border-solid border-[#D1D1D1] border-[0.0313rem]"/>
+			</div>
+			<div class="wrapperDivOnInput py-6 pl-6 pr-[3.063rem] flex flex-col gap-4">
+				<label for="tokenAvatar" class="text-lg font-normal tracking-[0.005em]">Token Image</label>
+				<input required type="url" name="pageThree" id="tokenAvatar" value="" placeholder="Enter Token image URL" class="w-[33.563rem] aspect-[537/56] placeholder:text-[#616161] placeholder:text-xs placeholder:font-bold placeholder:tracking-[0.005em] pl-2 bg-inherit rounded-3xl border-solid border-[#D1D1D1] border-[0.0313rem]"/>
+			</div>
+			@forwardAndBackwardBtn("dialogPageThreeBackBtn", "dialogPageThreeContinueBtn")
+		</form>
+		@scriptForDialogs()
+	</dialog>
+}
+
+templ dialogPageFour() {
+	<dialog id="dialogPageFour" class="bg-[#0A041F] px-10 pt-[4.531rem] pb-[10.531rem] rounded-3xl border-solid border-[0.0625rem] border-[#FFFFFF0D] backdrop:backdrop-blur-sm">
+		@dialogPageNumberAndCloseBtn("4/4", "#dialogPageFour")
+		@dialogTitleText("Generate mint address")
+		<section class="grid grid-cols-2 gap-4 justify-center items-center bg-[#FFFFFF1A] p-2 rounded-3xl">
+			<button autofocus class="py-[1.188rem] px-[3.984rem] focus:bg-red-600 rounded-3xl  border-[0.103rem] border-transparent border-solid">
+				<p class="text-[#FFFFFF] text-nowrap text-sm text-center tracking-[0.001em] font-bold">
+					Generate Random
+				</p>
+			</button>
+			<button class="py-[1.188rem] px-[3.984rem] focus:bg-red-600 focus:rounded-3xl focus:border-[0.103rem] focus:border-transparent focus:border-solid">
+				<p class="text-[#FFFFFF] text-nowrap text-sm text-center tracking-[0.001em] font-bold">
+					Customize
+				</p>
+			</button>
+		</section>
+		<section class="w-full h-full flex justify-center items-center mt-[7.5rem]">
+			<div>
+				<p class="text-[1.375rem] leading-7 font-normal -tracking-[0.0025em] text-[#EBEBEB] text-center">A random mint address would be <br/> generated for your token</p>
+				<section class="w-full mt-10 flex justify-center items-center gap-4">
+					<button id="dialogPageFourBackBtn" class="py-[1.197rem] px-[1.197rem] rounded-3xl bg-[#FFFFFF1A]">
+						<img src="/assets/svg/continue.svg" alt="" class="rotate-180 w-[0.545rem] m-[0.276rem] aspect-square"/>
+					</button>
+					<button id="dialogPageFourContinueBtn" type="button" class="flex gap-2 items-center py-[1.219rem] px-[2.196rem] rounded-3xl bg-CreateToken22">
+						<p class="text-sm font-bold tracking-[0.001em] text-[#FDFDFD]">Continue </p>
+						<img src="/assets/svg/continue.svg" alt="" class="w-[0.545rem] m-[0.276rem] aspect-square"/>
+					</button>
+				</section>
+			</div>
+		</section>
+	</dialog>
 }
