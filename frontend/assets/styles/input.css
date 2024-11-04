@@ -24,3 +24,6 @@
     linear-gradient(90deg, #9945FF 0%, #0B6F45 47.5%, #999999 71.5%, #12DB88 100%) border-box;
 }
 
+input[type=checkbox]:checked::before {
+  background-color: #0A041F;
+}

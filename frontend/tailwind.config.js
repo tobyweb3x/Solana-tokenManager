@@ -16,6 +16,7 @@ module.exports = {
         'auto-fill-minmax': 'repeat(auto-fill, minmax(337px, 1fr))',
         'bodyLayout': '18.875rem 1fr',
         'mintExtensionPage': '2fr 1.5fr',
+        'dialogInput': 'minmax(4rem, 6rem), 1fr',
       },
       spacing: {
       },
