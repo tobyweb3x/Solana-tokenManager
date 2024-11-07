@@ -5,11 +5,11 @@ tmp_dir = "tmp"
 [build]
   args_bin = []
   bin = "./tmp/main"
-  cmd = "templ generate && go build -o ./tmp/main ."
+  cmd = "go generate && go build -o ./tmp/main ."
   delay = 1000
-  exclude_dir = ["assets", "tmp", "vendor", "testdata", "ts/node_modules"]
+  exclude_dir = ["client/assets", "tmp", "vendor", "testdata", "ts/node_modules", "service/internal/repository/sqlite/migrations"]
   exclude_file = []
-  exclude_regex = ["_test.go", ".*_templ"]
+  exclude_regex = ["_test.go", ".*_templ", "client/pages/*_templ.txt", "client/pages/*_templ.txt"]
   exclude_unchanged = false
   follow_symlink = false
   full_bin = ""
@@ -24,7 +24,7 @@ tmp_dir = "tmp"
   pre_cmd = []
   rerun = false
   rerun_delay = 500
-  send_interrupt = false
+  send_interrupt = true
   stop_on_error = true
 
 [color]

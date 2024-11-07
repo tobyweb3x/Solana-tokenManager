@@ -3,10 +3,10 @@ package pages
 templ MintExtensionsShowPage() {
 	@backButtonAndTextDirection(
 		[]DirectionParams{
-			{Direction: "Dashboard"},
+			{Direction: "Dashboard", Url: "/"},
 			{Direction: "Mint Extensions"},
 		})
-	@extensionWithSwitchExtensionButton("Mint", "")
+	@extensionWithSwitchExtensionButton("Mint", "/showTokenExtensions")
 	<p class="font-normal text-3xl text-left mt-[3.938rem]">Here are the various extension on the Mint account</p>
 	<p class="text-[#A3A3A3] font-normal text-sm text-left tracking-[0.0025em]">
 		Note, some extension are dependent on another, so if such extension is
@@ -26,5 +26,5 @@ templ MintExtensionsShowPage() {
 			{ExtensionName: "Transfer Hook Extension"},
 			{ExtensionName: "Default Account State Extension"},
 		})
-	@addExtensionButton("mint", "")
+	@addExtensionButton("mint", "mintExtensions")
 }

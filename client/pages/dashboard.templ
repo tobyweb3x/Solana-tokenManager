@@ -48,7 +48,7 @@ templ Dashboard() {
 			</div>
 		</div>
 		<div class="flex w-full justify-between items-center mt-10">
-			<p class="text-2xl font-normal text-left font-ArchivoSemiCondensed_SemiBold">Token22 Created</p>
+			<p class="text-2xl font-normal text-left font-ArchivoSemiCondensed_SemiBold">Tokens Created</p>
 			<div class="relative w-fit h-auto">
 				<img
 					src="/assets/svg/MagnifyingGlass.svg"
@@ -75,19 +75,19 @@ templ Dashboard() {
 				class="w-[8.875rem] aspect-square"
 			/>
 			<div class="font-normal">
-				<p class="text-[1.75rem] leading-9 text-left text-wrap">You don't have any Token22</p>
+				<p class="text-[1.75rem] leading-9 text-left text-wrap">You don't have any Token created</p>
 				<p class="text-sm tracking-[0.0025em] text-center text-[#A3A3A3] text-wrap">Kindly create a new token via the create button below</p>
 			</div>
 			<button
 				class="flex gap-2 rounded-3xl py-4 px-[6.188rem] justify-center items-center text-[#FDFDFD] bg-CreateToken22 transition duration-500 ease-in-out focus:scale-y-110 focus:scale-x-110"
-				_="on click call openDialog()"
+				_="on click call #dialogPageOne.showModal()"
 			>
 				<img
 					src="/assets/svg/Plus.svg"
 					alt=""
 					class="w-6 aspect-square"
 				/>
-				<p class="text-sm font-bold tracking-[0.001em] text-center">Create new Token22</p>
+				<p class="text-sm font-bold tracking-[0.001em] text-center">Create new Token</p>
 			</button>
 		</div>
 	</div>

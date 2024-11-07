@@ -31,7 +31,7 @@ func menuBar() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"sideBar h-[100vh] flex flex-col justify-between items-center text-[#A3A3A3] text-sm font-bold tracking-[0.001em]\"><section class=\"flex flex-col gap-[2.875rem]\"><img src=\"/assets/svg/soanaLogoBig.svg\" class=\"w-[2.938rem] aspect-square my-10 mx-auto\" alt=\"\"><nav class=\"ml-[2.5rem] mr-[1.692rem] flex flex-col justify-between items-center\"><menu class=\"flex flex-col justify-between items-center gap-4  focus:text-white text-left\"><li><a href=\"#dashboard\" class=\"flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out\"><img src=\"/assets/svg/Home.svg\" class=\"w-6 aspect-square my-[0.82rem] ml-[2.467rem]\"><p class=\"w-[7.25rem] aspect-[116/10] mr-[2.467rem]\">Dashboard</p></a></li><li><a href=\"#dashboard\" class=\"flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out\"><img src=\"/assets/svg/Records.svg\" class=\"w-6 aspect-square my-[0.82rem] ml-[2.467rem]\"><p class=\"w-[7.25rem] aspect-[116/10] mr-[2.467rem]\">Records</p></a></li><li><a href=\"#dashboard\" class=\"flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out\"><img src=\"/assets/svg/Update token.svg\" class=\"w-6 aspect-square my-[0.82rem] ml-[2.467rem]\"><p class=\"w-[7.25rem] aspect-[116/10] mr-[2.467rem]\">Update Token</p></a></li><li><a href=\"#dashboard\" class=\"flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out\"><img src=\"/assets/svg/Launch token.svg\" class=\"w-6 aspect-square my-[0.82rem] ml-[2.467rem]\"><p class=\"w-[7.25rem] aspect-[116/10] mr-[2.467rem]\">Launch Token</p></a></li><li><a href=\"#dashboard\" class=\"flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out\"><img src=\"/assets/svg/Quit program.svg\" class=\"w-6 aspect-square my-[0.82rem] ml-[2.467rem]\"><p class=\"w-[7.25rem] aspect-[116/10] mr-[2.467rem]\">Quit Program</p></a></li></menu></nav></section><a href=\"#create\" class=\"mx-auto bg-CreateToken22 flex justify-center items-center gap-2 rounded-3xl text-sm font-bold\" onclick=\"\"><img src=\"assets/svg/Plus.svg\" class=\"w-6 aspect-square my-4 ml-[1.639rem]\"><p class=\"w-36 aspect-[116/10] tracking-[0.001em] text-center my-[1.438rem] mr-[1.639rem] text-[#FDFDFD]\">Create New Token</p></a><section class=\"text-center inline-flex gap-4 justify-center\"><a href=\"https://vividpass.xyz\" class=\"\">Built by VividPass</a> <a href=\"http://\">Version: 1.0.0</a></section></div><script type=\"text/javascript\">\n\t\tfunction openCreateNewTokenModal() {\n\t\t\t const modal = document.getElementById( 'createNewTokenModal' );\n                if ( modal )\n                {\n                    modal.showModal();\n                }\n\t\t}\n\n\t\tfunction closeCreateNewTokenModal () {\n                const modal = document.getElementById( 'createNewTokenModal' );\n                if ( modal )\n                {\n                    modal.close();\n                }\n            };\n\t</script>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"sideBar h-[100vh] flex flex-col justify-between items-center text-[#A3A3A3] text-sm font-bold tracking-[0.001em]\"><section class=\"flex flex-col gap-[2.875rem]\"><img src=\"/assets/svg/soanaLogoBig.svg\" class=\"w-[2.938rem] aspect-square my-10 mx-auto\" alt=\"\"><nav class=\"ml-[2.5rem] mr-[1.692rem] flex flex-col justify-between items-center\"><menu class=\"flex flex-col justify-between items-center gap-4  focus:text-white text-left\"><li><a href=\"#\" class=\"flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out\"><img src=\"/assets/svg/Home.svg\" class=\"w-6 aspect-square my-[0.82rem] ml-[2.467rem]\"><p class=\"w-[7.25rem] aspect-[116/10] mr-[2.467rem]\">Dashboard</p></a></li><li><a href=\"#\" class=\"flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out\"><img src=\"/assets/svg/Records.svg\" class=\"w-6 aspect-square my-[0.82rem] ml-[2.467rem]\"><p class=\"w-[7.25rem] aspect-[116/10] mr-[2.467rem]\">Records</p></a></li><li><a href=\"#\" class=\"flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out\"><img src=\"/assets/svg/Update token.svg\" class=\"w-6 aspect-square my-[0.82rem] ml-[2.467rem]\"><p class=\"w-[7.25rem] aspect-[116/10] mr-[2.467rem]\">Update Token</p></a></li><li><a href=\"#\" class=\"flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out\"><img src=\"/assets/svg/Launch token.svg\" class=\"w-6 aspect-square my-[0.82rem] ml-[2.467rem]\"><p class=\"w-[7.25rem] aspect-[116/10] mr-[2.467rem]\">Launch Token</p></a></li><li><a href=\"#\" class=\"flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out\"><img src=\"/assets/svg/Quit program.svg\" class=\"w-6 aspect-square my-[0.82rem] ml-[2.467rem]\"><p class=\"w-[7.25rem] aspect-[116/10] mr-[2.467rem]\">Quit Program</p></a></li></menu></nav></section><a class=\"mx-auto bg-CreateToken22 flex justify-center items-center gap-2 rounded-3xl text-sm font-bold\" _=\"on click call #dialogPageOne.showModal()\"><img src=\"assets/svg/Plus.svg\" class=\"w-6 aspect-square my-4 ml-[1.639rem]\"><p class=\"w-36 aspect-[116/10] tracking-[0.001em] text-center my-[1.438rem] mr-[1.639rem] text-[#FDFDFD]\">Create New Token</p></a><section class=\"text-center inline-flex gap-4 justify-center\"><a href=\"https://vividpass.xyz\" class=\"\">Built by VividPass</a> <a href=\"http://\">Version: 1.0.0</a></section></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -94,30 +94,47 @@ func backButtonAndTextDirection(direction []DirectionParams) templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"mx-10 mt-6 mb-14 flex justify-between\"><div class=\"flex gap-1 justify-center items-center\"><a href=\"#\"><img src=\"/assets/svg/ArrowRight.svg\" alt=\"\" class=\"w-6 aspect-square\"></a><p class=\"text-[#FDFDFD] text-sm font-bold tracking-[0.001em] text-left\">Back</p></div><div class=\"flex justify-center items-center gap-0 text-[#616161] text-sm font-normal tracking-[0.001em]\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"mx-10 mt-6 mb-14 flex justify-between\"><div class=\"flex gap-1 justify-center items-center\"><a hx-get=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var4 string
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(direction[len(direction)-2].Url)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/public.templ`, Line: 137, Col: 46}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"#mainContent\" hx-swap=\"innerHTML\" hx-push-url=\"true\"><img src=\"/assets/svg/ArrowRight.svg\" alt=\"\" class=\"w-6 aspect-square\"></a><p class=\"text-[#FDFDFD] text-sm font-bold tracking-[0.001em] text-left\">Back</p></div><div class=\"flex justify-center items-center gap-0 text-[#616161] text-sm font-normal tracking-[0.001em]\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		for i := 0; i < len(direction)-1; i++ {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var4 templ.SafeURL = templ.SafeURL(direction[i].Url)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(string(templ_7745c5c3_Var4)))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"cursor-pointer\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a hx-get=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(direction[i].Direction)
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(direction[i].Url)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/components.public.templ`, Line: 183, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/public.templ`, Line: 150, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"#mainContent\" hx-swap=\"innerHTML\" hx-push-url=\"true\" class=\"cursor-pointer\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var6 string
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(direction[i].Direction)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/public.templ`, Line: 151, Col: 29}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -130,12 +147,12 @@ func backButtonAndTextDirection(direction []DirectionParams) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var6 string
-		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(direction[len(direction)-1].Direction)
+		var templ_7745c5c3_Var7 string
+		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(direction[len(direction)-1].Direction)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/components.public.templ`, Line: 191, Col: 70}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/public.templ`, Line: 159, Col: 70}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -163,43 +180,47 @@ func extensionWithSwitchExtensionButton(extension, href string) templ.Component 
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var7 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var7 == nil {
-			templ_7745c5c3_Var7 = templ.NopComponent
+		templ_7745c5c3_Var8 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var8 == nil {
+			templ_7745c5c3_Var8 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-full flex justify-between items-center gap-1 pr-10\"><p class=\"text-[2.25rem] leading-[2.75rem] text-left font-normal font-ArchivoSemiCondensed_SemiBold\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var8 string
-		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%s Account Extensions", extension))
+		var templ_7745c5c3_Var9 string
+		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%s Account Extensions", extension))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/components.public.templ`, Line: 198, Col: 152}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/public.templ`, Line: 166, Col: 152}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><a href=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var9 templ.SafeURL = templ.SafeURL(href)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(string(templ_7745c5c3_Var9)))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"gradientButton flex justify-center items-center gap-2 py-[1.031rem] px-[2.375rem] max-lg:px-4 rounded-3xl border-[1px] border-transparent border-solid\"><img src=\"assets/svg/Swap.svg\" class=\"w-6 max-lg:w-4 aspect-square\"><p class=\"text-[#FFFFFF] text-nowrap text-sm max-lg:text-xs text-center tracking-[0.001em] font-bold\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><a hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var10 string
-		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("Change To %s Account Extensions", extension))
+		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(href)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/components.public.templ`, Line: 205, Col: 63}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/public.templ`, Line: 167, Col: 18}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"#mainContent\" hx-swap=\"innerHTML\" hx-push-url=\"true\" class=\"gradientButton flex justify-center items-center gap-2 py-[1.031rem] px-[2.375rem] max-lg:px-4 rounded-3xl border-[1px] border-transparent border-solid\"><img src=\"assets/svg/Swap.svg\" class=\"w-6 max-lg:w-4 aspect-square\"><p class=\"text-[#FFFFFF] text-nowrap text-sm max-lg:text-xs text-center tracking-[0.001em] font-bold\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var11 string
+		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("Change To %s Account Extensions", extension))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/public.templ`, Line: 173, Col: 63}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -232,9 +253,9 @@ func availableExtensions(exts []availableExtenisonsParam) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var11 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var11 == nil {
-			templ_7745c5c3_Var11 = templ.NopComponent
+		templ_7745c5c3_Var12 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var12 == nil {
+			templ_7745c5c3_Var12 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"grid grid-cols-auto-fill-minmax gap-[1.438rem] max-xl:gap-4 mt-[2.481rem] mr-10\">")
@@ -246,12 +267,12 @@ func availableExtensions(exts []availableExtenisonsParam) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(ext.ExtensionName)
+			var templ_7745c5c3_Var13 string
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(ext.ExtensionName)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/components.public.templ`, Line: 220, Col: 93}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/public.templ`, Line: 188, Col: 93}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -284,30 +305,34 @@ func addExtensionButton(extensionName, href string) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var13 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var13 == nil {
-			templ_7745c5c3_Var13 = templ.NopComponent
+		templ_7745c5c3_Var14 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var14 == nil {
+			templ_7745c5c3_Var14 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var14 templ.SafeURL = templ.SafeURL(href)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(string(templ_7745c5c3_Var14)))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"w-fit bg-CreateToken22 mt-10 ml-auto mr-10 flex gap-2 rounded-3xl px-6 py-4 justify-center items-center  text-white transition duration-500 ease-in-out focus:scale-y-110 focus:scale-x-110\"><p class=\"text-sm font-bold tracking-[0.001em] text-center\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var15 string
-		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("Add %s account extensions", extensionName))
+		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(href)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/components.public.templ`, Line: 238, Col: 119}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/public.templ`, Line: 203, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"#mainContent\" hx-swap=\"innerHTML\" hx-push-url=\"true\" class=\"w-fit bg-CreateToken22 mt-10 ml-auto mr-10 flex gap-2 rounded-3xl px-6 py-4 justify-center items-center  text-white transition duration-500 ease-in-out focus:scale-y-110 focus:scale-x-110\"><p class=\"text-sm font-bold tracking-[0.001em] text-center\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var16 string
+		templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("Add %s account extensions", extensionName))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/public.templ`, Line: 209, Col: 119}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -16,7 +16,7 @@ templ menuBar() {
 				<menu class="flex flex-col justify-between items-center gap-4  focus:text-white text-left">
 					<li>
 						<a
-							href="#dashboard"
+							href="#"
 							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
 						>
 							<img
@@ -30,7 +30,7 @@ templ menuBar() {
 					</li>
 					<li>
 						<a
-							href="#dashboard"
+							href="#"
 							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
 						>
 							<img
@@ -44,7 +44,7 @@ templ menuBar() {
 					</li>
 					<li>
 						<a
-							href="#dashboard"
+							href="#"
 							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
 						>
 							<img
@@ -58,7 +58,7 @@ templ menuBar() {
 					</li>
 					<li>
 						<a
-							href="#dashboard"
+							href="#"
 							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
 						>
 							<img
@@ -70,23 +70,9 @@ templ menuBar() {
 							</p>
 						</a>
 					</li>
-					// <li>
-					// 	<a
-					// 		href="#dashboard"
-					// 		class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
-					// 	>
-					// 		<img
-					// 			src="/assets/svg/Launch token.svg"
-					// 			class="w-6 aspect-square my-[0.82rem] ml-[2.467rem]"
-					// 		/>
-					// 		<p class="w-[7.25rem] aspect-[116/10] mr-[2.467rem]">
-					// 			Lessons
-					// 		</p>
-					// 	</a>
-					// </li>
 					<li>
 						<a
-							href="#dashboard"
+							href="#"
 							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
 						>
 							<img
@@ -102,9 +88,8 @@ templ menuBar() {
 			</nav>
 		</section>
 		<a
-			href="#create"
 			class="mx-auto bg-CreateToken22 flex justify-center items-center gap-2 rounded-3xl text-sm font-bold"
-			onclick=""
+			_="on click call #dialogPageOne.showModal()"
 		>
 			<img
 				src="assets/svg/Plus.svg"
@@ -124,23 +109,6 @@ templ menuBar() {
 			<a href="http://">Version: 1.0.0</a>
 		</section>
 	</div>
-	<script type="text/javascript">
-		function openCreateNewTokenModal() {
-			 const modal = document.getElementById( 'createNewTokenModal' );
-                if ( modal )
-                {
-                    modal.showModal();
-                }
-		}
-
-		function closeCreateNewTokenModal () {
-                const modal = document.getElementById( 'createNewTokenModal' );
-                if ( modal )
-                {
-                    modal.close();
-                }
-            };
-	</script>
 }
 
 templ connectWallet() {
@@ -166,7 +134,7 @@ type DirectionParams struct {
 templ backButtonAndTextDirection(direction []DirectionParams) {
 	<section class="mx-10 mt-6 mb-14 flex justify-between">
 		<div class="flex gap-1 justify-center items-center">
-			<a href="#">
+			<a hx-get={ direction[len(direction)-2].Url } hx-target="#mainContent" hx-swap="innerHTML" hx-push-url="true">
 				<img
 					src="/assets/svg/ArrowRight.svg"
 					alt=""
@@ -179,7 +147,7 @@ templ backButtonAndTextDirection(direction []DirectionParams) {
 			class="flex justify-center items-center gap-0 text-[#616161] text-sm font-normal tracking-[0.001em]"
 		>
 			for i:=0; i < len(direction) -1; i++ {
-				<a href={ templ.SafeURL(direction[i].Url) } class="cursor-pointer">
+				<a hx-get={ direction[i].Url } hx-target="#mainContent" hx-swap="innerHTML" hx-push-url="true" class="cursor-pointer">
 					{ direction[i].Direction }
 				</a>
 				<img
@@ -196,7 +164,7 @@ templ backButtonAndTextDirection(direction []DirectionParams) {
 templ extensionWithSwitchExtensionButton(extension, href string) {
 	<div class="w-full flex justify-between items-center gap-1 pr-10">
 		<p class="text-[2.25rem] leading-[2.75rem] text-left font-normal font-ArchivoSemiCondensed_SemiBold">{ fmt.Sprintf("%s Account Extensions", extension) }</p>
-		<a href={ templ.SafeURL(href) } class="gradientButton flex justify-center items-center gap-2 py-[1.031rem] px-[2.375rem] max-lg:px-4 rounded-3xl border-[1px] border-transparent border-solid">
+		<a hx-get={ href } hx-target="#mainContent" hx-swap="innerHTML" hx-push-url="true" class="gradientButton flex justify-center items-center gap-2 py-[1.031rem] px-[2.375rem] max-lg:px-4 rounded-3xl border-[1px] border-transparent border-solid">
 			<img
 				src="assets/svg/Swap.svg"
 				class="w-6 max-lg:w-4 aspect-square"
@@ -232,7 +200,10 @@ templ availableExtensions(exts []availableExtenisonsParam) {
 
 templ addExtensionButton(extensionName, href string) {
 	<a
-		href={ templ.SafeURL(href) }
+		hx-get={ href }
+		hx-target="#mainContent"
+		hx-swap="innerHTML"
+		hx-push-url="true"
 		class="w-fit bg-CreateToken22 mt-10 ml-auto mr-10 flex gap-2 rounded-3xl px-6 py-4 justify-center items-center  text-white transition duration-500 ease-in-out focus:scale-y-110 focus:scale-x-110"
 	>
 		<p class="text-sm font-bold tracking-[0.001em] text-center">{ fmt.Sprintf("Add %s account extensions", extensionName) }</p>

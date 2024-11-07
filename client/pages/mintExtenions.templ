@@ -3,8 +3,8 @@ package pages
 templ MintExtensions() {
 	@backButtonAndTextDirection(
 		[]DirectionParams{
-			{Direction: "Dashboard"},
-			{Direction: "Mint Extensions"},
+			{Direction: "Dashboard", Url: "/"},
+			{Direction: "Mint Extensions", Url: "/showMintExtensions"},
 			{Direction: "Select Mint Extenisons"},
 		},
 	)
@@ -16,10 +16,15 @@ templ MintExtensions() {
 				width: fit-content;
 			}
 			.color-override {
-            background-color: #AD6AFF3F;
-        }
+            	background-color: #AD6AFF3F;
+        	}
 		</style>
-		<script type="text/javascript">
+		@swipperScript()
+	</div>
+}
+
+templ swipperScript() {
+	<script>
 		    const swiper = new Swiper( '#swiper', {
 		        direction: 'horizontal',
 		        slidesPerView: 'auto',
@@ -32,7 +37,6 @@ templ MintExtensions() {
 		    } );
 
 		</script>
-	</div>
 }
 
 templ mainElement() {

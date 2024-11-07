@@ -1,6 +1,6 @@
 package pages
 
-templ Spa() {
+templ IndexPage() {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -33,26 +33,26 @@ templ Spa() {
 		<body class=" font-ArchivoSemiCondensed_Regular text-[#EBEBEB] bg-[#06001B]">
 			<div class="grid grid-cols-bodyLayout">
 				@menuBar()
-				<div class="focusBar">
+				<section>
 					@connectWallet()
-					@Dashboard()
-					// @MintExtensionsShowPage()
-					// @TokenExtensionsShowPage()
-					// @MintExtensions()
-				</div>
+					<main id="mainContent">
+						@Dashboard()
+					</main>
+				</section>
 			</div>
 		</body>
 		@dialogPageOne()
 		@dialogPageTwo()
 		@dialogPageThree()
 		@dialogPageFour()
-		<script>
-			function openDialog() {
-				// document.getElementById('dialogPageOne').showModal();
-				// document.getElementById('dialogPageTwo').showModal();
-				// document.getElementById('dialogPageThree').showModal();
-				document.getElementById('dialogPageFour').showModal();
-			}
-		</script>
+		@allScript()
 	</html>
+}
+
+var onceHandlerForScripts = templ.NewOnceHandle()
+
+templ allScript() {
+	@onceHandlerForScripts.Once() {
+		@swipperScript()
+	}
 }
