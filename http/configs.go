@@ -7,7 +7,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-
 type EnvConfig struct {
 	LoginProvider struct {
 		Google struct {

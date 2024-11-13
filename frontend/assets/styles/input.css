@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+}
+
+ .gradi:focus {
+  background: 
+    linear-gradient(#1b012a 0 0) padding-box, /* this is your background */
+    linear-gradient(90deg, #AD6AFF 0%, #12DB88 100%) border-box;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  opacity: 0px;
+} 
+
+@font-face {
+  font-family: "Archivo SemiCondensed-regular";
+  src: url("../fonts/Archivo_SemiCondensed/Archivo_SemiCondensed-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Archivo SemiCondensed-semibold";
+  src: url("../fonts/Archivo_SemiCondensed/Archivo_SemiCondensed-SemiBold.ttf");
+
+}
+@font-face {
+  font-family: "Archivo SemiCondensed-thin";
+  src: url("../fonts/Archivo_SemiCondensed/Archivo_SemiCondensed-Thin.ttf");
+}
+
+
+.gradientButton {
+  background: 
+     linear-gradient(black 0 0) padding-box, /* this is your background */
+    linear-gradient(90deg, #9945FF 0%, #0B6F45 47.5%, #999999 71.5%, #12DB88 100%) border-box;
+}
+
+input[type=checkbox]:checked::before {
+  background-color: #0A041F;
+}

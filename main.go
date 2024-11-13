@@ -22,7 +22,7 @@ func main() {
 	}
 
 	app := backend.NewApp(&environmentalVariables)
-	
+
 	port, err := findFreePort(app.Config.Build == "dev")
 	if err != nil {
 		log.Fatalln("Error finding port address: " + err.Error())
@@ -58,7 +58,7 @@ func main() {
 }
 
 func findFreePort(buildMode bool) (int, error) {
-	
+
 	if buildMode {
 		return 8080, nil
 	}

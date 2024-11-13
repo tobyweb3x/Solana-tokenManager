@@ -1,6 +1,6 @@
 package http
 
-type App struct{
+type App struct {
 	Config *EnvConfig
 }
 

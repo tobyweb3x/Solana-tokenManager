@@ -3,7 +3,7 @@ package http
 import (
 	"io/fs"
 
-	frontend "tokenManager/client"
+	frontend "tokenManager/frontend"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -22,7 +22,6 @@ func (a *App) Routes() *chi.Mux {
 	r.Get("/showMintExtensions", a.showMintExtensions)
 	r.Get("/showTokenExtensions", a.showTokenExtensions)
 	r.Get("/mintExtensions", a.mintExtensions)
-
 
 	var staticFiles = fs.FS(frontend.AssetsDir)
 	staticFs, _ := fs.Sub(staticFiles, "assets")
