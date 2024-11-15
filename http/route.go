@@ -17,11 +17,15 @@ func (a *App) Routes() *chi.Mux {
 	// r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
 	r.Use(middleware.Compress(5))
+	r.NotFoundHandler()
+	r.MethodNotAllowedHandler()
+	// r.MethodNotAllowed()
+	// r.NotFound()
 
 	r.Get("/", a.indexPage)
-	r.Get("/showMintExtensions", a.showMintExtensions)
 	r.Get("/showTokenExtensions", a.showTokenExtensions)
 	r.Get("/mintExtensions", a.mintExtensions)
+	r.Post("/showMintExtensions", a.showMintExtensions)
 
 	var staticFiles = fs.FS(frontend.AssetsDir)
 	staticFs, _ := fs.Sub(staticFiles, "assets")

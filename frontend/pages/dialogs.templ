@@ -27,133 +27,6 @@ templ dialogTitleText(titleText string) {
 	<p class="font-normal text-2xl text-center my-10 text-white">{ titleText }</p>
 }
 
-var dialogScriptsAndStyles = templ.NewOnceHandle()
-
-templ scriptAndStylesForDialogs() {
-	@dialogScriptsAndStyles.Once() {
-		<style>
-		.gradientRadio {
-			background: 
-				linear-gradient(#1b012a 0 0) padding-box, /* this is your background */
-				linear-gradient(90deg, #AD6AFF 0%, #12DB88 100%) border-box;
-			border-radius: 16px;
-			border: 1px solid transparent;
-			opacity: 0px;
-		}
-		</style>
-		<script defer>
-		let TokenInfo = {}
-		function handleRadioClickDialogOne(param) {
-			const dialogPageOneContinueBtn = document.getElementById('dialogPageOneContinueBtn');
-			dialogPageOneContinueBtn.disabled = false;
-			dialogPageOneContinueBtn.classList.remove('opacity-40');
-
-
-			const parentDivs = document.querySelectorAll('#dialogPageOne .wrapperDivOnInput');
-			parentDivs.forEach(div => {
-				div.classList.remove('gradientRadio');
-			});
-
-			param.classList.add('gradientRadio');
-		}
-
-		function handleRadioClickDialogTwo(param) {
-			const dialogPageTwoContinueBtn = document.getElementById('dialogPageTwoContinueBtn');
-			dialogPageTwoContinueBtn.disabled = false;
-			dialogPageTwoContinueBtn.classList.remove('opacity-40');
-
-
-			const parentDivs = document.querySelectorAll('#dialogPageTwo .wrapperDivOnInput');
-			parentDivs.forEach(div => {
-				div.classList.remove('gradientRadio');
-			});
-
-			param.classList.add('gradientRadio');
-		}
-
-		document.addEventListener('DOMContentLoaded', () => {
-			const dialogPageThreeForm = document.getElementById('dialogPageThreeForm');
-			const continueButton = document.getElementById('dialogPageThreeContinueBtn');
-				
-			function checkFormValidity() {
-				if (dialogPageThreeForm.checkValidity()) {
-					continueButton.disabled = false;
-					continueButton.classList.remove('opacity-40');
-				} else {
-					continueButton.disabled = true;
-					continueButton.classList.add('opacity-40');
-				}
-			}
-
-			dialogPageThreeForm.addEventListener('input', checkFormValidity);
-
-	// dialog4/4
-			const forRandomBtn = document.querySelector('.forRandom');
-			const forCustomiseBtn = document.querySelector('.forCustomise');
-			const randomSection = document.querySelector('.random');
-			const customiseSection = document.querySelector('.customise');
-
-			forRandomBtn.addEventListener('focus', () => {
-				randomSection.style.display = 'flex';
-				forRandomBtn.classList.add('gradientRadio')
-				customiseSection.style.display = 'none';
-				forCustomiseBtn.classList.remove('gradientRadio')
-			});
-
-			forCustomiseBtn.addEventListener('focus', () => {
-				customiseSection.style.display = 'flex';
-				forCustomiseBtn.classList.add('gradientRadio')
-				randomSection.style.display = 'none';
-				forRandomBtn.classList.remove('gradientRadio')
-				// const x = document.getElementById('dialogPageFour')
-				// x.classList.remove('pb-[10.531rem]')
-				// x.classList.add('pb-[5.266rem]')
-			});
-		});
-
-
-
-
-		function handleSubmit(dialogID, dialogFormID) {
-			event.preventDefault();
-			
-			const form = document.getElementById(dialogFormID)
-			const formData = new FormData(form);
-			console.log(formData)
-
-			let selectedValue;
-			switch (dialogID) {
-				case "dialogPageOne":
-					selectedValue = formData.get('pageOne');
-					TokenInfo.tokenStandard = selectedValue
-					break
-
-				case "dialogPageTwo":
-					selectedValue = formData.get('pageTwo');
-					TokenInfo.tokenType = selectedValue
-					break
-
-				case "dialogPageThree":
-					selectedValue = formData.getAll('pageThree');
-					const propertyNames = ['tokenName', 'tokenSymbol', 'tokenAvatarURL'];
-					selectedValue.forEach((value, index) => {
-						if (index < propertyNames.length) {
-							TokenInfo[propertyNames[index]] = value;
-						}
-					});
-					break
-					
-				case "dialogPageFour":
-					break
-			}
-
-			console.log('Selected Value:', selectedValue);
-		}
-
-	</script>
-	}
-}
-
 templ dialogPageOne() {
 	<dialog id="dialogPageOne" class="bg-[#0A041F] px-10 pt-[4.531rem] pb-[10.531rem] rounded-3xl border-solid border-[0.0625rem] border-[#FFFFFF0D] backdrop:backdrop-blur-sm">
 		@dialogPageNumberAndCloseBtn("1/4", "#dialogPageOne")
@@ -254,12 +127,12 @@ templ dialogPageFour() {
 				class="forRandom py-[1.188rem] px-[3.984rem] rounded-3xl border-[0.103rem] border-transparent border-solid focus:outline-none"
 			>
 				<p class="text-[#FFFFFF] text-nowrap text-sm text-center tracking-[0.001em] font-bold">
-					Generate Randomsss
+					Generate Randomss
 				</p>
 			</button>
 			<button class="forCustomise py-[1.188rem] px-[3.984rem] focus:rounded-3xl focus:border-[0.103rem] focus:border-transparent focus:border-solid focus:outline-none">
 				<p class="text-[#FFFFFF] text-nowrap text-sm text-center tracking-[0.001em] font-bold">
-					Customizesss
+					Customize
 				</p>
 			</button>
 		</section>
@@ -270,7 +143,7 @@ templ dialogPageFour() {
 					<button _="on click call #dialogPageFour.close() then call #dialogPageThree.showModal() then halt" class="py-[1.197rem] px-[1.197rem] rounded-3xl bg-[#FFFFFF1A]">
 						<img src="/assets/svg/continue.svg" alt="" class="rotate-180 w-[0.545rem] m-[0.276rem] aspect-square"/>
 					</button>
-					<button hx-get="/showMintExtensions" hx-target="#mainContent" hx-swap="innerHTML" hx-push-url="true" _="on click call #dialogPageFour.close()" class="flex gap-2 items-center py-[1.219rem] px-[2.196rem] rounded-3xl bg-CreateToken22">
+					<button hx-post="/showMintExtensions" hx-target="#mainContent" hx-vals="js:{tokenInfo: generateRandomKeyPair()}" hx-swap="innerHTML" hx-push-url="true" _="on click call #dialogPageFour.close()" class="flex gap-2 items-center py-[1.219rem] px-[2.196rem] rounded-3xl bg-CreateToken22">
 						<p class="text-sm font-bold tracking-[0.001em] text-[#FDFDFD]">Continue </p>
 						<img src="/assets/svg/continue.svg" alt="" class="w-[0.545rem] m-[0.276rem] aspect-square"/>
 					</button>
@@ -343,4 +216,137 @@ templ dialogPageFour() {
 		</section>
 		@scriptAndStylesForDialogs()
 	</dialog>
+}
+
+var dialogScriptsAndStyles = templ.NewOnceHandle()
+
+templ scriptAndStylesForDialogs() {
+	@dialogScriptsAndStyles.Once() {
+		<style>
+		.gradientRadio {
+			background: 
+				linear-gradient(#1b012a 0 0) padding-box, /* this is your background */
+				linear-gradient(90deg, #AD6AFF 0%, #12DB88 100%) border-box;
+			border-radius: 16px;
+			border: 1px solid transparent;
+			opacity: 0px;
+		}
+		</style>
+		<script defer>
+		let TokenInfo = {}
+
+	// dialog 1/4
+		function handleRadioClickDialogOne(param) {
+			const dialogPageOneContinueBtn = document.getElementById('dialogPageOneContinueBtn');
+			dialogPageOneContinueBtn.disabled = false;
+			dialogPageOneContinueBtn.classList.remove('opacity-40');
+
+
+			const parentDivs = document.querySelectorAll('#dialogPageOne .wrapperDivOnInput');
+			parentDivs.forEach(div => {
+				div.classList.remove('gradientRadio');
+			});
+
+			param.classList.add('gradientRadio');
+		}
+
+	// dialog 2/4
+		function handleRadioClickDialogTwo(param) {
+			const dialogPageTwoContinueBtn = document.getElementById('dialogPageTwoContinueBtn');
+			dialogPageTwoContinueBtn.disabled = false;
+			dialogPageTwoContinueBtn.classList.remove('opacity-40');
+
+
+			const parentDivs = document.querySelectorAll('#dialogPageTwo .wrapperDivOnInput');
+			parentDivs.forEach(div => {
+				div.classList.remove('gradientRadio');
+			});
+
+			param.classList.add('gradientRadio');
+		}
+
+	// dialog 3/4
+		document.addEventListener('DOMContentLoaded', () => {
+			const dialogPageThreeForm = document.getElementById('dialogPageThreeForm');
+			const continueButton = document.getElementById('dialogPageThreeContinueBtn');
+				
+			function checkFormValidity() {
+				if (dialogPageThreeForm.checkValidity()) {
+					continueButton.disabled = false;
+					continueButton.classList.remove('opacity-40');
+				} else {
+					continueButton.disabled = true;
+					continueButton.classList.add('opacity-40');
+				}
+			}
+
+			dialogPageThreeForm.addEventListener('input', checkFormValidity);
+
+	// dialog 4/4
+			const forRandomBtn = document.querySelector('.forRandom');
+			const forCustomiseBtn = document.querySelector('.forCustomise');
+			const randomSection = document.querySelector('.random');
+			const customiseSection = document.querySelector('.customise');
+
+			forRandomBtn.addEventListener('focus', () => {
+				randomSection.style.display = 'flex';
+				forRandomBtn.classList.add('gradientRadio')
+				customiseSection.style.display = 'none';
+				forCustomiseBtn.classList.remove('gradientRadio')
+			});
+
+			forCustomiseBtn.addEventListener('focus', () => {
+				customiseSection.style.display = 'flex';
+				forCustomiseBtn.classList.add('gradientRadio')
+				randomSection.style.display = 'none';
+				forRandomBtn.classList.remove('gradientRadio')
+				const x = document.getElementById('dialogPageFour')
+				x.classList.remove('pb-[10.531rem]')
+				x.classList.add('pb-[5.266rem]')
+			});
+		});
+
+	// input collection
+		function handleSubmit(dialogID, dialogFormID) {
+			event.preventDefault();
+			
+			const form = document.getElementById(dialogFormID)
+			const formData = new FormData(form);
+			// console.log(formData)
+
+			let selectedValue;
+			switch (dialogID) {
+				case "dialogPageOne":
+					selectedValue = formData.get('pageOne');
+					TokenInfo.tokenStandard = selectedValue
+					break
+
+				case "dialogPageTwo":
+					selectedValue = formData.get('pageTwo');
+					TokenInfo.tokenType = selectedValue
+					break
+
+				case "dialogPageThree":
+					selectedValue = formData.getAll('pageThree');
+					const propertyNames = ['tokenName', 'tokenSymbol', 'tokenUrl'];
+					selectedValue.forEach((value, index) => {
+						if (index < propertyNames.length) {
+							TokenInfo[propertyNames[index]] = value;
+						}
+					});
+					break
+					
+				case "dialogPageFour":
+					break
+			}
+
+			// console.log('Selected Value:', selectedValue);
+			console.log('TokenInfo:', TokenInfo);
+		}
+
+		function generateRandomKeyPair() {
+			return createRandomKeyPair(TokenInfo)	
+		}
+	</script>
+	}
 }

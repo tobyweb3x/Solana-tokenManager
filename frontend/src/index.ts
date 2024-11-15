@@ -1,10 +1,22 @@
-import {Keypair} from '@solana/web3.js';
+import {Keypair, PublicKey} from '@solana/web3.js';
+import bs58 from 'bs58';
 
-export function createRandomKeyPair() {
+export function createRandomKeyPair(tokenInfo: TokenInfo) {
    const wallet = Keypair.generate();
-   console.log('public addr', wallet.publicKey.toBase58())
-   console.log('private addr', wallet.secretKey)
+   tokenInfo.mintAddressPublickey = wallet.publicKey.toBase58();
+   tokenInfo.mintAddressSecretkey = bs58.encode(wallet.secretKey)
+   return tokenInfo
 }
 
+interface TokenInfo {
+   tokenStandard: string
+   tokenType: string
+   tokenName: string
+   tokenSymbol: string
+   tokenUrl: string
+   mintAddressPublickey: string
+   mintAddressSecretkey: string
+
+}
 
 (window as any).createRandomKeyPair = createRandomKeyPair;

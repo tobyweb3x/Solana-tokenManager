@@ -20,6 +20,7 @@
     "@solana/spl-token": "^0.4.8",
     "@solana/spl-token-metadata": "^0.1.4",
     "@solana/web3.js": "^1.95.3",
+    "bs58": "^6.0.0",
     "npm-run-all": "^4.1.5"
   },
   "devDependencies": {

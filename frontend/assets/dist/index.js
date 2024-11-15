@@ -1832,7 +1832,7 @@
           ctor.prototype = new TempCtor();
           ctor.prototype.constructor = ctor;
         }
-        function BN2(number3, base, endian) {
+        function BN2(number3, base2, endian) {
           if (BN2.isBN(number3)) {
             return number3;
           }
@@ -1841,11 +1841,11 @@
           this.length = 0;
           this.red = null;
           if (number3 !== null) {
-            if (base === "le" || base === "be") {
-              endian = base;
-              base = 10;
+            if (base2 === "le" || base2 === "be") {
+              endian = base2;
+              base2 = 10;
             }
-            this._init(number3 || 0, base || 10, endian || "be");
+            this._init(number3 || 0, base2 || 10, endian || "be");
           }
         }
         if (typeof module2 === "object") {
@@ -1878,17 +1878,17 @@
           if (left.cmp(right) < 0) return left;
           return right;
         };
-        BN2.prototype._init = function init(number3, base, endian) {
+        BN2.prototype._init = function init(number3, base2, endian) {
           if (typeof number3 === "number") {
-            return this._initNumber(number3, base, endian);
+            return this._initNumber(number3, base2, endian);
           }
           if (typeof number3 === "object") {
-            return this._initArray(number3, base, endian);
+            return this._initArray(number3, base2, endian);
           }
-          if (base === "hex") {
-            base = 16;
+          if (base2 === "hex") {
+            base2 = 16;
           }
-          assert3(base === (base | 0) && base >= 2 && base <= 36);
+          assert3(base2 === (base2 | 0) && base2 >= 2 && base2 <= 36);
           number3 = number3.toString().replace(/\s+/g, "");
           var start = 0;
           if (number3[0] === "-") {
@@ -1896,17 +1896,17 @@
             this.negative = 1;
           }
           if (start < number3.length) {
-            if (base === 16) {
+            if (base2 === 16) {
               this._parseHex(number3, start, endian);
             } else {
-              this._parseBase(number3, base, start);
+              this._parseBase(number3, base2, start);
               if (endian === "le") {
-                this._initArray(this.toArray(), base, endian);
+                this._initArray(this.toArray(), base2, endian);
               }
             }
           }
         };
-        BN2.prototype._initNumber = function _initNumber(number3, base, endian) {
+        BN2.prototype._initNumber = function _initNumber(number3, base2, endian) {
           if (number3 < 0) {
             this.negative = 1;
             number3 = -number3;
@@ -1930,9 +1930,9 @@
             this.length = 3;
           }
           if (endian !== "le") return;
-          this._initArray(this.toArray(), base, endian);
+          this._initArray(this.toArray(), base2, endian);
         };
-        BN2.prototype._initArray = function _initArray(number3, base, endian) {
+        BN2.prototype._initArray = function _initArray(number3, base2, endian) {
           assert3(typeof number3.length === "number");
           if (number3.length <= 0) {
             this.words = [0];
@@ -2046,20 +2046,20 @@
           }
           return r;
         }
-        BN2.prototype._parseBase = function _parseBase(number3, base, start) {
+        BN2.prototype._parseBase = function _parseBase(number3, base2, start) {
           this.words = [0];
           this.length = 1;
-          for (var limbLen = 0, limbPow = 1; limbPow <= 67108863; limbPow *= base) {
+          for (var limbLen = 0, limbPow = 1; limbPow <= 67108863; limbPow *= base2) {
             limbLen++;
           }
           limbLen--;
-          limbPow = limbPow / base | 0;
+          limbPow = limbPow / base2 | 0;
           var total = number3.length - start;
           var mod2 = total % limbLen;
           var end = Math.min(total, total - mod2) + start;
           var word = 0;
           for (var i = start; i < end; i += limbLen) {
-            word = parseBase(number3, i, i + limbLen, base);
+            word = parseBase(number3, i, i + limbLen, base2);
             this.imuln(limbPow);
             if (this.words[0] + word < 67108864) {
               this.words[0] += word;
@@ -2069,9 +2069,9 @@
           }
           if (mod2 !== 0) {
             var pow3 = 1;
-            word = parseBase(number3, i, number3.length, base);
+            word = parseBase(number3, i, number3.length, base2);
             for (i = 0; i < mod2; i++) {
-              pow3 *= base;
+              pow3 *= base2;
             }
             this.imuln(pow3);
             if (this.words[0] + word < 67108864) {
@@ -2241,11 +2241,11 @@
           52521875,
           60466176
         ];
-        BN2.prototype.toString = function toString(base, padding) {
-          base = base || 10;
+        BN2.prototype.toString = function toString(base2, padding) {
+          base2 = base2 || 10;
           padding = padding | 0 || 1;
           var out;
-          if (base === 16 || base === "hex") {
+          if (base2 === 16 || base2 === "hex") {
             out = "";
             var off = 0;
             var carry = 0;
@@ -2275,14 +2275,14 @@
             }
             return out;
           }
-          if (base === (base | 0) && base >= 2 && base <= 36) {
-            var groupSize = groupSizes[base];
-            var groupBase = groupBases[base];
+          if (base2 === (base2 | 0) && base2 >= 2 && base2 <= 36) {
+            var groupSize = groupSizes[base2];
+            var groupBase = groupBases[base2];
             out = "";
             var c = this.clone();
             c.negative = 0;
             while (!c.isZero()) {
-              var r = c.modrn(groupBase).toString(base);
+              var r = c.modrn(groupBase).toString(base2);
               c = c.idivn(groupBase);
               if (!c.isZero()) {
                 out = zeros[groupSize - r.length] + r + out;
@@ -4765,24 +4765,24 @@
     "node_modules/.pnpm/base-x@3.0.10/node_modules/base-x/src/index.js"(exports, module) {
       "use strict";
       var _Buffer = require_safe_buffer().Buffer;
-      function base(ALPHABET) {
-        if (ALPHABET.length >= 255) {
+      function base2(ALPHABET2) {
+        if (ALPHABET2.length >= 255) {
           throw new TypeError("Alphabet too long");
         }
         var BASE_MAP = new Uint8Array(256);
         for (var j = 0; j < BASE_MAP.length; j++) {
           BASE_MAP[j] = 255;
         }
-        for (var i = 0; i < ALPHABET.length; i++) {
-          var x = ALPHABET.charAt(i);
+        for (var i = 0; i < ALPHABET2.length; i++) {
+          var x = ALPHABET2.charAt(i);
           var xc = x.charCodeAt(0);
           if (BASE_MAP[xc] !== 255) {
             throw new TypeError(x + " is ambiguous");
           }
           BASE_MAP[xc] = i;
         }
-        var BASE = ALPHABET.length;
-        var LEADER = ALPHABET.charAt(0);
+        var BASE = ALPHABET2.length;
+        var LEADER = ALPHABET2.charAt(0);
         var FACTOR = Math.log(BASE) / Math.log(256);
         var iFACTOR = Math.log(256) / Math.log(BASE);
         function encode(source) {
@@ -4825,7 +4825,7 @@
           }
           var str = LEADER.repeat(zeroes);
           for (; it2 < size; ++it2) {
-            str += ALPHABET.charAt(b58[it2]);
+            str += ALPHABET2.charAt(b58[it2]);
           }
           return str;
         }
@@ -4887,7 +4887,7 @@
           decode
         };
       }
-      module.exports = base;
+      module.exports = base2;
     }
   });
 
@@ -4895,8 +4895,8 @@
   var require_bs58 = __commonJS({
     "node_modules/.pnpm/bs58@4.0.1/node_modules/bs58/index.js"(exports, module) {
       var basex = require_src();
-      var ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
-      module.exports = basex(ALPHABET);
+      var ALPHABET2 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+      module.exports = basex(ALPHABET2);
     }
   });
 
@@ -8993,15 +8993,15 @@
         const { windows, windowSize } = opts(W);
         const points = [];
         let p = elm;
-        let base = p;
+        let base2 = p;
         for (let window2 = 0; window2 < windows; window2++) {
-          base = p;
-          points.push(base);
+          base2 = p;
+          points.push(base2);
           for (let i = 1; i < windowSize; i++) {
-            base = base.add(p);
-            points.push(base);
+            base2 = base2.add(p);
+            points.push(base2);
           }
-          p = base.double();
+          p = base2.double();
         }
         return points;
       },
@@ -15168,11 +15168,143 @@ Message: ${transactionMessage}.
     BufferLayout.struct([BufferLayout.nu64("slot"), BufferLayout.nu64("timestamp")], "lastTimestamp")
   ]);
 
+  // node_modules/.pnpm/base-x@5.0.0/node_modules/base-x/src/esm/index.js
+  function base(ALPHABET2) {
+    if (ALPHABET2.length >= 255) {
+      throw new TypeError("Alphabet too long");
+    }
+    const BASE_MAP = new Uint8Array(256);
+    for (let j = 0; j < BASE_MAP.length; j++) {
+      BASE_MAP[j] = 255;
+    }
+    for (let i = 0; i < ALPHABET2.length; i++) {
+      const x = ALPHABET2.charAt(i);
+      const xc = x.charCodeAt(0);
+      if (BASE_MAP[xc] !== 255) {
+        throw new TypeError(x + " is ambiguous");
+      }
+      BASE_MAP[xc] = i;
+    }
+    const BASE = ALPHABET2.length;
+    const LEADER = ALPHABET2.charAt(0);
+    const FACTOR = Math.log(BASE) / Math.log(256);
+    const iFACTOR = Math.log(256) / Math.log(BASE);
+    function encode(source) {
+      if (source instanceof Uint8Array) {
+      } else if (ArrayBuffer.isView(source)) {
+        source = new Uint8Array(source.buffer, source.byteOffset, source.byteLength);
+      } else if (Array.isArray(source)) {
+        source = Uint8Array.from(source);
+      }
+      if (!(source instanceof Uint8Array)) {
+        throw new TypeError("Expected Uint8Array");
+      }
+      if (source.length === 0) {
+        return "";
+      }
+      let zeroes = 0;
+      let length = 0;
+      let pbegin = 0;
+      const pend = source.length;
+      while (pbegin !== pend && source[pbegin] === 0) {
+        pbegin++;
+        zeroes++;
+      }
+      const size = (pend - pbegin) * iFACTOR + 1 >>> 0;
+      const b58 = new Uint8Array(size);
+      while (pbegin !== pend) {
+        let carry = source[pbegin];
+        let i = 0;
+        for (let it1 = size - 1; (carry !== 0 || i < length) && it1 !== -1; it1--, i++) {
+          carry += 256 * b58[it1] >>> 0;
+          b58[it1] = carry % BASE >>> 0;
+          carry = carry / BASE >>> 0;
+        }
+        if (carry !== 0) {
+          throw new Error("Non-zero carry");
+        }
+        length = i;
+        pbegin++;
+      }
+      let it2 = size - length;
+      while (it2 !== size && b58[it2] === 0) {
+        it2++;
+      }
+      let str = LEADER.repeat(zeroes);
+      for (; it2 < size; ++it2) {
+        str += ALPHABET2.charAt(b58[it2]);
+      }
+      return str;
+    }
+    function decodeUnsafe(source) {
+      if (typeof source !== "string") {
+        throw new TypeError("Expected String");
+      }
+      if (source.length === 0) {
+        return new Uint8Array();
+      }
+      let psz = 0;
+      let zeroes = 0;
+      let length = 0;
+      while (source[psz] === LEADER) {
+        zeroes++;
+        psz++;
+      }
+      const size = (source.length - psz) * FACTOR + 1 >>> 0;
+      const b256 = new Uint8Array(size);
+      while (source[psz]) {
+        let carry = BASE_MAP[source.charCodeAt(psz)];
+        if (carry === 255) {
+          return;
+        }
+        let i = 0;
+        for (let it3 = size - 1; (carry !== 0 || i < length) && it3 !== -1; it3--, i++) {
+          carry += BASE * b256[it3] >>> 0;
+          b256[it3] = carry % 256 >>> 0;
+          carry = carry / 256 >>> 0;
+        }
+        if (carry !== 0) {
+          throw new Error("Non-zero carry");
+        }
+        length = i;
+        psz++;
+      }
+      let it4 = size - length;
+      while (it4 !== size && b256[it4] === 0) {
+        it4++;
+      }
+      const vch = new Uint8Array(zeroes + (size - it4));
+      let j = zeroes;
+      while (it4 !== size) {
+        vch[j++] = b256[it4++];
+      }
+      return vch;
+    }
+    function decode(string2) {
+      const buffer = decodeUnsafe(string2);
+      if (buffer) {
+        return buffer;
+      }
+      throw new Error("Non-base" + BASE + " character");
+    }
+    return {
+      encode,
+      decodeUnsafe,
+      decode
+    };
+  }
+  var esm_default = base;
+
+  // node_modules/.pnpm/bs58@6.0.0/node_modules/bs58/src/esm/index.js
+  var ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+  var esm_default2 = esm_default(ALPHABET);
+
   // src/index.ts
-  function createRandomKeyPair() {
+  function createRandomKeyPair(tokenInfo) {
     const wallet = Keypair.generate();
-    console.log("public addr", wallet.publicKey.toBase58());
-    console.log("private addr", wallet.secretKey);
+    tokenInfo.mintAddressPublickey = wallet.publicKey.toBase58();
+    tokenInfo.mintAddressSecretkey = esm_default2.encode(wallet.secretKey);
+    return tokenInfo;
   }
   window.createRandomKeyPair = createRandomKeyPair;
 })();
