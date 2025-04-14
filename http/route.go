@@ -25,11 +25,10 @@ func (a *App) Routes() *chi.Mux {
 	r.Get("/", a.indexPage)
 	r.Get("/showTokenExtensions", a.showTokenExtensions)
 	r.Get("/mintExtensions", a.mintExtensions)
-	r.Post("/showMintExtensions", a.showMintExtensions)
+	r.Get("/showMintExtensions", a.showMintExtensions)
 
 	var staticFiles = fs.FS(frontend.AssetsDir)
-	staticFs, _ := fs.Sub(staticFiles, "assets")
-	r.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.FS(staticFs))))
-
+	staticFs, _ := fs.Sub(staticFiles, "public")
+	r.Handle("/public/*", http.StripPrefix("/public/", http.FileServer(http.FS(staticFs))))
 	return r
 }

@@ -1,0 +1,164 @@
+package pages
+
+import "fmt"
+
+templ ShowTokenExtensionsPage() {
+	@IndexPage(ShowTokenExtensionsPartial())
+}
+
+templ ShowMintExtensionsPage() {
+	@IndexPage(ShowMintExtensionsPartial())
+}
+
+templ ShowMintExtensionsPartial() {
+	@backButtonAndTextDirection(
+		[]DirectionParams{
+			{Direction: "Dashboard", Url: "/"},
+			{Direction: "Mint Extensions"},
+		})
+	@extensionWithSwitchExtensionButton("Mint", "/showTokenExtensions")
+	<p class="font-normal text-3xl text-left mt-[3.938rem]">Here are the various extension on the Mint account</p>
+	<p class="text-[#A3A3A3] font-normal text-sm text-left tracking-[0.0025em]">
+		Note, some extension are dependent on another, so if such extension is
+		used, you automatically use
+		its dependent
+	</p>
+	@availableExtensions(mintExtensions)
+	@addExtensionButton("mint", "mintExtensions")
+	@scriptForShowPagw()
+}
+
+var mintExtensions = []availableExtenisonsParam{
+	{ExtensionName: "Metadata & Metadata pointer Extension", PopOverContent: metadataExt},
+	{ExtensionName: "Non-Transfer Token Extension", PopOverContent: nonTransferTokenExt},
+	{ExtensionName: "Transfer Fee Extension", PopOverContent: transferFeeExt},
+	{ExtensionName: "MintClose Authority Extension", PopOverContent: mintCloseAuthorityExt},
+	{ExtensionName: "Group & Group pointer Extension", PopOverContent: groupExt},
+	{ExtensionName: "Member & Member pointer Extension", PopOverContent: memberExt},
+	{ExtensionName: "Interest Bearing Token Extension", PopOverContent: interestBearingTokenExt},
+	{ExtensionName: "Permanent Delegate Extension", PopOverContent: permanentDelegateExt},
+	{ExtensionName: "Transfer Hook Extension", PopOverContent: transferHookExt},
+	{ExtensionName: "Default Account State Extension", PopOverContent: defaultAccountStateExt}}
+
+templ ShowTokenExtensionsPartial() {
+	@backButtonAndTextDirection(
+		[]DirectionParams{
+			{Direction: "Dashboard", Url: "/"},
+			{Direction: "Token Extensions"},
+		})
+	@extensionWithSwitchExtensionButton("Token", "/showMintExtensions")
+	<p class="font-normal text-3xl text-left mt-[3.938rem] text-wrap">Here are the various extension on the Token account</p>
+	<p class="text-[#A3A3A3] font-normal text-sm text-left tracking-[0.0025em] text-wrap">
+		Note, some extension are dependent on another, so if such extension is
+		used, you automatically use
+		its dependent
+	</p>
+	@availableExtensions(
+		[]availableExtenisonsParam{
+			{ExtensionName: "Immutable Owner Extension", PopOverContent: immutableOwnerExt},
+			{ExtensionName: "Required Memo Extension", PopOverContent: requiredMemoExt},
+			{ExtensionName: "CPI Guard Extension", PopOverContent: cpiGuardExt},
+		})
+	@addExtensionButton("token", "")
+	@scriptForShowPagw()
+}
+
+templ scriptForShowPagw() {
+	<script src="/public/assets/scripts/popper.min.js"></script>
+	<script src="/public/assets/scripts/tippy-bundle.umd.js"></script>
+	<style>
+		.tippy-box[data-theme~='tomato'] {
+			background-color: black;
+			color:#EBEBEB;
+			font-family: 'ArchivoSemiCondensed';
+			border-radius: 10px;
+			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+			padding: 4px;
+			text-align: start;
+		}
+	</style>
+	<script>
+		tippy('[data-tippy-content]', {
+				allowHTML: true,
+				theme: 'tomato',
+				animation: 'perspective-extreme',
+				interactive: true,
+				arrow: false,
+		});
+	</script>
+}
+
+var (
+	metadataExt = extentionDocs(
+		"Metadata & Metadata pointer Extension",
+		"enhance the interoperability of tokens across different applications and platforms by standardizing how metadata is associated and accessed",
+		"https://solana.com/developers/courses/token-extensions/token-extensions-metadata")
+
+	nonTransferTokenExt = extentionDocs(
+		"Non-Transfer Token Extension",
+		"enables non-transferrable (or 'soul-bound') tokens.",
+		"https://solana.com/developers/courses/token-extensions/non-transferable-token")
+
+	transferFeeExt = extentionDocs(
+		"Transfer Fee Extension",
+		"allows fees to be withheld on every transfer. These fees are held on the recipient's account, and can only be redeemed from the withdrawWithheldAuthority authority.",
+		"https://solana.com/developers/courses/token-extensions/transfer-fee")
+
+	mintCloseAuthorityExt = extentionDocs(
+		"MintClose Authority Extension",
+		"allows mint accounts to be closed, whereas the original Token Program only allows owners to close token accounts, not mint accounts.",
+		"https://solana.com/developers/courses/token-extensions/close-mint")
+
+	groupExt = extentionDocs(
+		"Group & Group pointer Extension",
+		"token groups' are commonly used to implement NFT collections.",
+		"https://solana.com/developers/courses/token-extensions/group-member")
+
+	memberExt = extentionDocs(
+		"Member & Member pointer Extension",
+		"token members' are also commonly used to implement NFT collections, allowing to save member data within the mint itself",
+		"https://solana.com/developers/courses/token-extensions/group-member")
+
+	interestBearingTokenExt = extentionDocs(
+		"Interest Bearing Token Extension",
+		"enable creators to set an interest rate and store it directly on the mint account.",
+		"https://solana.com/developers/courses/token-extensions/interest-bearing-token")
+
+	permanentDelegateExt = extentionDocs(
+		"Permanent Delegate Extension",
+		"holds global ownership over all token accounts associated with the mint.",
+		"https://solana.com/developers/courses/token-extensions/permanent-delegate")
+
+	transferHookExt = extentionDocs(
+		"Transfer Hook Extension",
+		"extension allows developers to run custom logic on their tokens on every transfer.",
+		"https://solana.com/developers/courses/token-extensions/transfer-hook")
+
+	defaultAccountStateExt = extentionDocs(
+		"Default Account State Extension",
+		"extension enables developers to set new token accounts for a mint with this extension to be frozen by default, requiring interaction with a specific service to unfreeze and utilize the tokens.",
+		"https://solana.com/developers/courses/token-extensions/default-account-state")
+
+	immutableOwnerExt = extentionDocs(
+		"Immutable Owner Extension",
+		"extension ensures that once a token account is created, its owner is unchangeable, securing the ownership against any modifications.",
+		"https://solana.com/developers/courses/token-extensions/immutable-owner")
+
+	requiredMemoExt = extentionDocs(
+		"Required Memo Extension",
+		"extension allows developers to mandate that all incoming transfers to a token account include a memo, facilitating enhanced transaction tracking and user identification.",
+		"https://solana.com/developers/courses/token-extensions/required-memo")
+
+	cpiGuardExt = extentionDocs(
+		"CPI Guard Extension",
+		"extension prohibits certain actions inside cross-program invocations.",
+		"https://solana.com/developers/courses/token-extensions/cpi-guard")
+)
+
+func extentionDocs(extName, extDocs, extUrl string) string {
+	return fmt.Sprintf(`
+		The <b class="bg-gradient-to-r from-[#AD6AFF_0%%] to-[#12DB88_100%%] bg-clip-text text-transparent text-nowrap">%s</b>
+		%s
+		<br/><br/> see here for <a href="%s" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-[#AD6AFF_0%%] to-[#12DB88_100%%] bg-clip-text text-transparent text-nowrap">more information  <img class="inline w-2 aspect-square" src="/public/assets/svg/open-in-new-tab.svg"/></a>`,
+		extName, extDocs, extUrl)
+}

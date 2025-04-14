@@ -1,0 +1,218 @@
+package pages
+
+import "fmt"
+
+templ nav() {
+	<nav
+		class="h-full flex flex-col justify-between items-center text-[#A3A3A3] text-sm font-bold tracking-[0.001em] overflow-clip"
+	>
+		<section class="flex flex-col gap-[2.875rem]">
+			<img
+				src="/public/assets/svg/soanaLogoBig.svg"
+				class="w-[2.938rem] aspect-square my-10 mx-auto"
+				alt=""
+			/>
+			<div class="ml-[2.5rem] mr-[1.692rem] flex flex-col justify-between items-center">
+				<menu class="flex flex-col justify-between items-center gap-4  focus:text-white text-left">
+					<li>
+						<a
+							href="/"
+							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
+						>
+							<img
+								src="/public/assets/svg/Home.svg"
+								class="w-6 aspect-square my-[0.82rem] ml-[2.467rem]"
+							/>
+							<p class="w-[7.25rem] aspect-[116/10] mr-[2.467rem]">
+								Dashboard
+							</p>
+						</a>
+					</li>
+					<li>
+						<a
+							href="#"
+							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
+						>
+							<img
+								src="/public/assets/svg/Records.svg"
+								class="w-6 aspect-square my-[0.82rem] ml-[2.467rem]"
+							/>
+							<p class="w-[7.25rem] aspect-[116/10] mr-[2.467rem]">
+								Records
+							</p>
+						</a>
+					</li>
+					<li>
+						<a
+							href="#"
+							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
+						>
+							<img
+								src="/public/assets/svg/Update token.svg"
+								class="w-6 aspect-square my-[0.82rem] ml-[2.467rem]"
+							/>
+							<p class="w-[7.25rem] aspect-[116/10] mr-[2.467rem]">
+								Update Token
+							</p>
+						</a>
+					</li>
+					<li>
+						<a
+							href="#"
+							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
+						>
+							<img
+								src="/public/assets/svg/Launch token.svg"
+								class="w-6 aspect-square my-[0.82rem] ml-[2.467rem]"
+							/>
+							<p class="w-[7.25rem] aspect-[116/10] mr-[2.467rem]">
+								Launch Token
+							</p>
+						</a>
+					</li>
+					<li>
+						<a
+							href="#"
+							class="flex gap-4 justify-center items-center rounded-full focus:outline-none focus:scale-y-110 focus:scale-x-110 focus:bg-menuGradient transition duration-500 ease-in-out"
+						>
+							<img
+								src="/public/assets/svg/Quit program.svg"
+								class="w-6 aspect-square my-[0.82rem] ml-[2.467rem]"
+							/>
+							<p class="w-[7.25rem] aspect-[116/10] mr-[2.467rem]">
+								Quit Program
+							</p>
+						</a>
+					</li>
+				</menu>
+			</div>
+		</section>
+		<a
+			class="mx-auto bg-CreateToken22 flex justify-center items-center gap-2 rounded-3xl text-sm font-bold cursor-pointer"
+			_="on click call #dialogPageOne.showModal()"
+		>
+			<img
+				src="/public/assets/svg/Plus.svg"
+				class="w-6 aspect-square my-4 ml-[1.639rem]"
+			/>
+			<p
+				class="w-36 aspect-[116/10] tracking-[0.001em] text-center my-[1.438rem] mr-[1.639rem] text-[#FDFDFD] cursor-pointer"
+			>
+				Create New Token
+			</p>
+		</a>
+		<section class="text-center inline-flex gap-4 justify-center">
+			<a
+				href="https://vividpass.xyz"
+				class=""
+			>Built by VividPass</a>
+			<a href="http://">Version: 1.0.0</a>
+		</section>
+	</nav>
+}
+
+templ header() {
+	<header
+		class="w-full bg-inherit pt-[1.18rem] pb-[1.242rem] pr-[3.467rem]"
+	>
+		<div class="ml-auto bg-[#FFFFFF1A] w-fit flex justify-center items-center gap-2 rounded-3xl py-2 px-4">
+			<img
+				src="/public/assets/images/solanaLogo.png"
+				class="w-[2.125rem] aspect-[34/33.25] rounded-3xl"
+			/>
+			<button class="text-[#FFFFFFB2] font-normal text-base -tracking-tighter text-center">
+				Connect
+				Wallet
+			</button>
+		</div>
+	</header>
+}
+
+type DirectionParams struct {
+	Direction string
+	Url       string
+}
+
+templ backButtonAndTextDirection(direction []DirectionParams) {
+	<section class="px-10 pt-6 pb-14 flex justify-between">
+		<div class="flex gap-1 justify-center items-center">
+			<a href={ templ.SafeURL(direction[0].Url) }>
+				<img
+					src="/public/assets/svg/ArrowRight.svg"
+					alt=""
+					class="w-6 aspect-square"
+				/>
+			</a>
+			<p class="text-[#FDFDFD] text-sm font-bold tracking-[0.001em] text-left">Back</p>
+		</div>
+		<div
+			class="flex justify-center items-center gap-0 text-[#616161] text-sm font-normal tracking-[0.001em]"
+		>
+			for i:=0; i < len(direction) -1; i++ {
+				<a href={ templ.SafeURL(direction[i].Url) } class="cursor-pointer">
+					{ direction[i].Direction }
+				</a>
+				<img
+					src="/public/assets/svg/CaretRight.svg"
+					alt=""
+					class="w-4 aspect-square"
+				/>
+			}
+			<p class="text-[#F7F7F7]">{ direction[len(direction) - 1].Direction }</p>
+		</div>
+	</section>
+}
+
+templ extensionWithSwitchExtensionButton(extension, href string) {
+	<div class="w-full flex justify-between items-center gap-1 pr-10 cursor-pointer">
+		<p class="text-[2.25rem] leading-[2.75rem] text-left font-normal font-ArchivoSemiCondensed_SemiBold">{ fmt.Sprintf("%s Account Extensions", extension) }</p>
+		<a hx-get={ href } hx-target="#mainContent" hx-swap="innerHTML" hx-push-url="true" class="gradientRadio	 flex justify-center items-center gap-2 py-[1.031rem] px-[2.375rem] max-lg:px-4 rounded-3xl border-[1px] border-transparent border-solid">
+			<img
+				src="/public/assets/svg/Swap.svg"
+				class="w-6 max-lg:w-4 aspect-square"
+			/>
+			<p class="text-[#FFFFFF] text-nowrap text-sm max-lg:text-xs text-center tracking-[0.001em] font-bold">
+				{ fmt.Sprintf("Change To %s Account Extensions", extension) }
+			</p>
+		</a>
+	</div>
+}
+
+type availableExtenisonsParam struct {
+	ExtensionName  string
+	PopOverContent string
+}
+
+templ availableExtensions(exts []availableExtenisonsParam) {
+	<section class="grid grid-cols-auto-fill-minmax gap-[1.438rem] max-xl:gap-4 mt-[2.481rem] mr-10">
+		for _, ext := range exts {
+			<div class="py-4 px-[1.49rem] rounded-3xl w-full flex gap-4 max-xl:gap-2 justify-between items-center bg-[#FFFFFF0D]">
+				<p class="text-xs font-bold text-left tracking-[0.005em] text-nowrap">{ ext.ExtensionName }</p>
+				<button class="shrink-0" type="button" data-tippy-content={ ext.PopOverContent }>
+					<img
+						src="/public/assets/svg/Info.svg"
+						alt=""
+						class=" aspect-square"
+					/>
+				</button>
+			</div>
+		}
+	</section>
+}
+
+templ addExtensionButton(extensionName, href string) {
+	<a
+		hx-get={ href }
+		hx-target="#mainContent"
+		hx-swap="innerHTML"
+		hx-push-url="true"
+		class="cursor-pointer w-fit bg-CreateToken22 mt-10 ml-auto mr-10 flex gap-2 rounded-3xl px-6 py-4 justify-center items-center  text-white transition duration-500 ease-in-out focus:scale-y-110 focus:scale-x-110"
+	>
+		<p class="text-sm font-bold tracking-[0.001em] text-center">{ fmt.Sprintf("Add %s account extensions", extensionName) }</p>
+		<img
+			src="/public/assets/svg/ArrowRight.svg"
+			alt=""
+			class="w-6 aspect-square rotate-180"
+		/>
+	</a>
+}

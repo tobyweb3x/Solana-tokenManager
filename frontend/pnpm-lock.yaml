@@ -26,6 +26,9 @@ importers:
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
+      tippy.js:
+        specifier: ^6.3.7
+        version: 6.3.7
     devDependencies:
       esbuild:
         specifier: 0.24.0
@@ -187,6 +190,9 @@ packages:
   '@noble/hashes@1.4.0':
     resolution: {integrity: sha512-V1JJ1WTRUqHHrOSh597hURcMqVKVGL/ea3kv0gSnEdsEZ0/+VyPghM1lMNGc00z7CIQorSvbKpuJkxvuHbvdbg==}
     engines: {node: '>= 16'}
+
+  '@popperjs/core@2.11.8':
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
   '@solana-developers/helpers@2.5.2':
     resolution: {integrity: sha512-hKRUR8uhltuULoIuBTNWv5J13qnCqbO+Q4np8nQG+lzlkuwFZfRhvZkYuyVF5bQRSFABgo+YODaagzV6AkxrsA==}
@@ -832,6 +838,9 @@ packages:
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
 
+  tippy.js@6.3.7:
+    resolution: {integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==}
+
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
@@ -1000,6 +1009,8 @@ snapshots:
       '@noble/hashes': 1.4.0
 
   '@noble/hashes@1.4.0': {}
+
+  '@popperjs/core@2.11.8': {}
 
   '@solana-developers/helpers@2.5.2(bufferutil@4.0.8)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.5.4)(utf-8-validate@5.0.10)':
     dependencies:
@@ -1857,6 +1868,10 @@ snapshots:
   text-encoding-utf-8@1.0.2: {}
 
   through@2.3.8: {}
+
+  tippy.js@6.3.7:
+    dependencies:
+      '@popperjs/core': 2.11.8
 
   tr46@0.0.3: {}
 

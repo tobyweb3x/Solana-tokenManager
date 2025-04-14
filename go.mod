@@ -3,7 +3,7 @@ module tokenManager
 go 1.23.0
 
 require (
-	github.com/a-h/templ v0.2.778
+	github.com/a-h/templ v0.3.819
 	github.com/caarlos0/env/v11 v11.2.2
 	github.com/gagliardetto/solana-go v1.11.0
 	github.com/go-chi/chi/v5 v5.1.0
@@ -32,6 +32,6 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.0 // indirect
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d // indirect
-	golang.org/x/sys v0.23.0 // indirect
+	golang.org/x/sys v0.28.0 // indirect
 	golang.org/x/term v0.0.0-20201210144234-2321bbc49cbf // indirect
 )

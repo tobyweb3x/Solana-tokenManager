@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+}
+
+.gradi:focus {
+  background: linear-gradient(#1b012a 0 0) padding-box,
+    /* this is your background */
+      linear-gradient(90deg, #ad6aff 0%, #12db88 100%) border-box;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  opacity: 0px;
+}
+
+@font-face {
+  font-family: "Archivo SemiCondensed-regular";
+  src: url("../fonts/Archivo_SemiCondensed/Archivo_SemiCondensed-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Archivo SemiCondensed-semibold";
+  src: url("../fonts/Archivo_SemiCondensed/Archivo_SemiCondensed-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Archivo SemiCondensed-thin";
+  src: url("../fonts/Archivo_SemiCondensed/Archivo_SemiCondensed-Thin.ttf");
+}
+
+@font-face {
+  font-family: "DM Sans-Regular";
+  src: url("../fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf");
+}
+
+.gradientButton {
+  background: linear-gradient(black 0 0) padding-box,
+    /* this is your background */
+      linear-gradient(
+        90deg,
+        #9945ff 0%,
+        #0b6f45 47.5%,
+        #999999 71.5%,
+        #12db88 100%
+      )
+      border-box;
+}
+
+input[type="checkbox"]:checked::before {
+  background-color: #0a041f;
+}

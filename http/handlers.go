@@ -2,8 +2,6 @@ package http
 
 import (
 	"context"
-	"encoding/json"
-	"fmt"
 	"net/http"
 	"strconv"
 	frontend "tokenManager/frontend/pages"
@@ -25,31 +23,31 @@ func (a *App) indexPage(w http.ResponseWriter, r *http.Request) {
 
 func (a *App) showMintExtensions(w http.ResponseWriter, r *http.Request) {
 
-	var (
-		err       error
-		inputData []string
-		ok        bool
-	)
+	// var (
+	// 	err       error
+	// 	inputData []string
+	// 	ok        bool
+	// )
 
-	if err = r.ParseForm(); err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
-	}
+	// if err = r.ParseForm(); err != nil {
+	// 	http.Error(w, err.Error(), http.StatusBadRequest)
+	// 	return
+	// }
 
-	if inputData, ok = r.Form["tokenInfo"]; len(inputData[0]) == 0 || !ok {
-		http.Error(w, "post data is either empty or not in  the expected format", http.StatusBadRequest)
-		return
-	}
+	// if inputData, ok = r.Form["tokenInfo"]; len(inputData[0]) == 0 || !ok {
+	// 	http.Error(w, "post data is either empty or not in  the expected format", http.StatusBadRequest)
+	// 	return
+	// }
 
-	if err = json.Unmarshal([]byte(inputData[0]), &tokenInfo); err != nil {
-		http.Error(w, fmt.Errorf("error unmarshaling tokenInfo: %w", err).Error(), http.StatusInternalServerError)
-		return
-	}
+	// if err = json.Unmarshal([]byte(inputData[0]), &tokenInfo); err != nil {
+	// 	http.Error(w, fmt.Errorf("error unmarshaling tokenInfo: %w", err).Error(), http.StatusInternalServerError)
+	// 	return
+	// }
 
-	if tokenInfo.Wallet, err = solana.WalletFromPrivateKeyBase58(tokenInfo.MintAddressSecretKey); err != nil {
-		http.Error(w, fmt.Errorf("wallet could not be created:%w", err).Error(), http.StatusBadRequest)
-		return
-	}
+	// if tokenInfo.Wallet, err = solana.WalletFromPrivateKeyBase58(tokenInfo.MintAddressSecretKey); err != nil {
+	// 	http.Error(w, fmt.Errorf("wallet could not be created:%w", err).Error(), http.StatusBadRequest)
+	// 	return
+	// }
 
 	if isHXRequest(r) {
 		if err := frontend.ShowMintExtensionsPartial().Render(context.Background(), w); err != nil {

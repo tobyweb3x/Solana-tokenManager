@@ -11,26 +11,38 @@ templ IndexPage(pageMain templ.Component) {
 			/>
 			<link
 				rel="stylesheet"
-				href="/assets/styles/output.css"
+				href="/public/assets/styles/output.css"
 			/>
 			<link
 				rel="stylesheet"
-				href="/assets/libriaries/swiper-bundle.min.css"
+				href="/public/assets/styles/swiper-bundle.min.css"
+			/>
+			<link
+				rel="stylesheet"
+				href="/public/assets/styles/backdrop.css"
+			/>
+			<link
+				rel="stylesheet"
+				href="/public/assets/styles/shift-away.css"
+			/>
+			<link
+				rel="stylesheet"
+				href="/public/assets/styles/perspective-extreme.css"
 			/>
 			// <script async type="module">
-			// 	import {createRandomKeyPair} from '/assets/dist/index.js';
+			// 	import {createRandomKeyPair} from '/public/assets/dist/index.js';
 			// </script>
-			<script src="/assets/dist/index.js"></script>
-			<script src="/assets/libriaries/swiper-bundle.min.js"></script>
-			<script src="/assets/libriaries/htmx.min.js"></script>
-			<script defer src="/assets/libriaries/hyperscript.min.js"></script>
+			<script src="/public/assets/scripts/index.js"></script>
+			<script src="/public/assets/scripts/swiper-bundle.min.js"></script>
+			<script src="/public/assets/scripts/htmx.min.js"></script>
+			<script src="/public/assets/scripts/hyperscript.min.js"></script>
 			<title>Token Manager</title>
 		</head>
-		<body class=" font-ArchivoSemiCondensed_Regular text-[#EBEBEB] bg-[#06001B]">
-			<div class="grid grid-cols-bodyLayout">
-				@menuBar()
-				<section>
-					@connectWallet()
+		<body class="font-DM_Sans_Regular text-[#EBEBEB] bg-[#06001B] h-screen">
+			<div class="w-full h-full flex">
+				@nav()
+				<div class="w-full h-full">
+					@header()
 					<main id="mainContent">
 						if pageMain == nil {
 							@Dashboard()
@@ -38,7 +50,7 @@ templ IndexPage(pageMain templ.Component) {
 							@pageMain
 						}
 					</main>
-				</section>
+				</div>
 			</div>
 		</body>
 		@dialogPageOne()
