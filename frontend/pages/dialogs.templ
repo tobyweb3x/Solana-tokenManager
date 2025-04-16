@@ -275,11 +275,10 @@ templ dialogPageFour() {
 	</dialog>
 }
 
-var dialogScriptsAndStyles = templ.NewOnceHandle()
-
+// var dialogScriptsAndStyles = templ.NewOnceHandle()
 templ scriptAndStylesForDialogs() {
-	@dialogScriptsAndStyles.Once() {
-		<style>
+	// @dialogScriptsAndStyles.Once() {
+	<style>
 		.gradientRadio {
 			background: 
 				linear-gradient(#1b012a 0 0) padding-box, /* this is your background */
@@ -289,7 +288,7 @@ templ scriptAndStylesForDialogs() {
 			opacity: 0px;
 		}
 		</style>
-		<script defer>
+	<script defer>
 		let TokenInfo = {}
 
 	// dialog 1/4
@@ -405,5 +404,5 @@ templ scriptAndStylesForDialogs() {
 			return createRandomKeyPair(TokenInfo)	
 		}
 	</script>
-	}
+	// }
 }

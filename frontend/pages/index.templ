@@ -29,6 +29,12 @@ templ IndexPage(pageMain templ.Component) {
 				rel="stylesheet"
 				href="/public/assets/styles/perspective-extreme.css"
 			/>
+			// <link
+			// 	rel="stylesheet"
+			// 	href="/public/assets/styles/toggle.css"
+			// />
+			<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css"/>
+			<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 			// <script async type="module">
 			// 	import {createRandomKeyPair} from '/public/assets/dist/index.js';
 			// </script>
@@ -38,12 +44,12 @@ templ IndexPage(pageMain templ.Component) {
 			<script src="/public/assets/scripts/hyperscript.min.js"></script>
 			<title>Token Manager</title>
 		</head>
-		<body class="font-DM_Sans_Regular text-[#EBEBEB] bg-[#06001B] h-screen">
+		<body class="font-DM_Sans_Regular text-[#EBEBEB] bg-[#06001B] h-screen overflow-hidden">
 			<div class="w-full h-full flex">
 				@nav()
 				<div class="w-full h-full">
 					@header()
-					<main id="mainContent">
+					<main id="mainContent w-full h-full">
 						if pageMain == nil {
 							@Dashboard()
 						} else {

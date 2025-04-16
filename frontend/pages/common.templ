@@ -113,7 +113,7 @@ templ nav() {
 
 templ header() {
 	<header
-		class="w-full bg-inherit pt-[1.18rem] pb-[1.242rem] pr-[3.467rem]"
+		class="bg-inherit pt-[1.18rem] pb-[1.242rem] pr-[3.467rem]"
 	>
 		<div class="ml-auto bg-[#FFFFFF1A] w-fit flex justify-center items-center gap-2 rounded-3xl py-2 px-4">
 			<img
@@ -134,7 +134,7 @@ type DirectionParams struct {
 }
 
 templ backButtonAndTextDirection(direction []DirectionParams) {
-	<section class="px-10 pt-6 pb-14 flex justify-between">
+	<section class="px-10 pt-6 pb-14 flex justify-between items-center">
 		<div class="flex gap-1 justify-center items-center">
 			<a href={ templ.SafeURL(direction[0].Url) }>
 				<img

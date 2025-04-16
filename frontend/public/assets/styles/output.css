@@ -620,10 +620,6 @@ video {
   margin-bottom: 1.438rem;
 }
 
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
 .ml-\[1\.21rem\] {
   margin-left: 1.21rem;
 }
@@ -664,8 +660,20 @@ video {
   margin-right: 2.467rem;
 }
 
+.mr-\[4\.50rem\] {
+  margin-right: 4.50rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .mt-\[1\.03rem\] {
@@ -726,6 +734,10 @@ video {
 
 .aspect-square {
   aspect-ratio: 1 / 1;
+}
+
+.h-3\/4 {
+  height: 75%;
 }
 
 .h-5 {
@@ -809,6 +821,11 @@ video {
   width: 100%;
 }
 
+.max-w-max {
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
 .shrink-0 {
   flex-shrink: 0;
 }
@@ -833,6 +850,10 @@ video {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-\[55\%_45\%\] {
+  grid-template-columns: 55% 45%;
 }
 
 .grid-cols-auto-fill-minmax {
@@ -883,6 +904,10 @@ video {
   gap: 0.5rem;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -919,8 +944,8 @@ video {
   gap: 28.25rem;
 }
 
-.overflow-auto {
-  overflow: auto;
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .overflow-clip {
@@ -1094,6 +1119,10 @@ video {
   padding: 0.5rem;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
 .p-\[0\.726rem\] {
   padding: 0.726rem;
 }
@@ -1101,6 +1130,11 @@ video {
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .px-4 {
@@ -1253,6 +1287,10 @@ video {
   padding-top: 2.5rem;
 }
 
+.pt-24 {
+  padding-top: 6rem;
+}
+
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -1265,20 +1303,12 @@ video {
   padding-top: 4.531rem;
 }
 
-.pt-24 {
-  padding-top: 6rem;
-}
-
 .text-left {
   text-align: left;
 }
 
 .text-center {
   text-align: center;
-}
-
-.font-ArchivoSemiCondensed_Regular {
-  font-family: "Archivo SemiCondensed-regular";
 }
 
 .font-ArchivoSemiCondensed_SemiBold {
@@ -1672,6 +1702,19 @@ input[type="checkbox"]:checked::before {
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.peer:checked ~ .peer-checked\:text-clip {
+  text-overflow: clip;
+}
+
+.peer:checked ~ .peer-checked\:text-green-200 {
+  --tw-text-opacity: 1;
+  color: rgb(187 247 208 / var(--tw-text-opacity, 1));
+}
+
+.peer:checked ~ .peer-checked\:text-transparent {
+  color: transparent;
 }
 
 @media not all and (min-width: 1280px) {

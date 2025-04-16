@@ -2,6 +2,9 @@ package http
 
 import (
 	"context"
+	"encoding/json"
+	"errors"
+	"fmt"
 	"net/http"
 	"strconv"
 	frontend "tokenManager/frontend/pages"
@@ -18,47 +21,47 @@ func (a *App) indexPage(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-
 }
 
 func (a *App) showMintExtensions(w http.ResponseWriter, r *http.Request) {
 
-	// var (
-	// 	err       error
-	// 	inputData []string
-	// 	ok        bool
-	// )
+	var err error
 
-	// if err = r.ParseForm(); err != nil {
-	// 	http.Error(w, err.Error(), http.StatusBadRequest)
-	// 	return
-	// }
+	if r.Method == http.MethodPost {
+		if err = r.ParseForm(); err != nil {
+			a.clientError(w, http.StatusBadRequest, fmt.Errorf("error parsing form request: %s", err.Error()))
+			return
+		}
 
-	// if inputData, ok = r.Form["tokenInfo"]; len(inputData[0]) == 0 || !ok {
-	// 	http.Error(w, "post data is either empty or not in  the expected format", http.StatusBadRequest)
-	// 	return
-	// }
+		jsonStr := r.PostForm.Get("tokenInfo")
+		if jsonStr == "" {
+			a.clientError(w, http.StatusBadRequest, errors.New("invalid request body: form was empty"))
+			return
+		}
 
-	// if err = json.Unmarshal([]byte(inputData[0]), &tokenInfo); err != nil {
-	// 	http.Error(w, fmt.Errorf("error unmarshaling tokenInfo: %w", err).Error(), http.StatusInternalServerError)
-	// 	return
-	// }
+		if err = json.Unmarshal([]byte(jsonStr), &tokenInfo); err != nil {
+			a.serverError(w, err)
+			return
+		}
 
-	// if tokenInfo.Wallet, err = solana.WalletFromPrivateKeyBase58(tokenInfo.MintAddressSecretKey); err != nil {
-	// 	http.Error(w, fmt.Errorf("wallet could not be created:%w", err).Error(), http.StatusBadRequest)
-	// 	return
-	// }
+		if tokenInfo.Wallet, err = solana.WalletFromPrivateKeyBase58(tokenInfo.MintAddressSecretKey); err != nil {
+			a.serverError(w, err)
+			return
+		}
+
+		fmt.Printf("\n\n%+v\n\n", tokenInfo)
+	}
 
 	if isHXRequest(r) {
 		if err := frontend.ShowMintExtensionsPartial().Render(context.Background(), w); err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+			a.serverError(w, err)
 			return
 		}
 		return
 	}
 
 	if err := frontend.ShowMintExtensionsPage().Render(context.Background(), w); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		a.serverError(w, err)
 		return
 	}
 }
@@ -107,7 +110,7 @@ func isHXRequest(r *http.Request) bool {
 	return false
 }
 
-type TokenInfoData struct {
+type TokenInfo struct {
 	TokenStandard        string           `json:"tokenStandard"`
 	TokenType            string           `json:"tokenType"`
 	TokenName            string           `json:"tokenName"`
@@ -119,4 +122,4 @@ type TokenInfoData struct {
 	Wallet               *solana.Wallet
 }
 
-var tokenInfo TokenInfoData
+var tokenInfo TokenInfo

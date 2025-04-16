@@ -60,7 +60,7 @@ func header() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<header class=\"w-full bg-inherit pt-[1.18rem] pb-[1.242rem] pr-[3.467rem]\"><div class=\"ml-auto bg-[#FFFFFF1A] w-fit flex justify-center items-center gap-2 rounded-3xl py-2 px-4\"><img src=\"/public/assets/images/solanaLogo.png\" class=\"w-[2.125rem] aspect-[34/33.25] rounded-3xl\"> <button class=\"text-[#FFFFFFB2] font-normal text-base -tracking-tighter text-center\">Connect Wallet</button></div></header>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<header class=\"bg-inherit pt-[1.18rem] pb-[1.242rem] pr-[3.467rem]\"><div class=\"ml-auto bg-[#FFFFFF1A] w-fit flex justify-center items-center gap-2 rounded-3xl py-2 px-4\"><img src=\"/public/assets/images/solanaLogo.png\" class=\"w-[2.125rem] aspect-[34/33.25] rounded-3xl\"> <button class=\"text-[#FFFFFFB2] font-normal text-base -tracking-tighter text-center\">Connect Wallet</button></div></header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -94,7 +94,7 @@ func backButtonAndTextDirection(direction []DirectionParams) templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<section class=\"px-10 pt-6 pb-14 flex justify-between\"><div class=\"flex gap-1 justify-center items-center\"><a href=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<section class=\"px-10 pt-6 pb-14 flex justify-between items-center\"><div class=\"flex gap-1 justify-center items-center\"><a href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

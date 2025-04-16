@@ -109,7 +109,7 @@ func ShowMintExtensionsPartial() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = addExtensionButton("mint", "mintExtensions").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = addExtensionButton("mint", "/mintExtensions").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -122,12 +122,12 @@ func ShowMintExtensionsPartial() templ.Component {
 }
 
 var mintExtensions = []availableExtenisonsParam{
-	{ExtensionName: "Metadata & Metadata pointer Extension", PopOverContent: metadataExt},
+	{ExtensionName: "Metadata & Metadata Pointer Extension", PopOverContent: metadataExt},
 	{ExtensionName: "Non-Transfer Token Extension", PopOverContent: nonTransferTokenExt},
 	{ExtensionName: "Transfer Fee Extension", PopOverContent: transferFeeExt},
 	{ExtensionName: "MintClose Authority Extension", PopOverContent: mintCloseAuthorityExt},
-	{ExtensionName: "Group & Group pointer Extension", PopOverContent: groupExt},
-	{ExtensionName: "Member & Member pointer Extension", PopOverContent: memberExt},
+	{ExtensionName: "Group & Group Pointer Extension", PopOverContent: groupExt},
+	{ExtensionName: "Member & Member Pointer Extension", PopOverContent: memberExt},
 	{ExtensionName: "Interest Bearing Token Extension", PopOverContent: interestBearingTokenExt},
 	{ExtensionName: "Permanent Delegate Extension", PopOverContent: permanentDelegateExt},
 	{ExtensionName: "Transfer Hook Extension", PopOverContent: transferHookExt},
@@ -212,7 +212,7 @@ func scriptForShowPagw() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<script src=\"/public/assets/scripts/popper.min.js\"></script><script src=\"/public/assets/scripts/tippy-bundle.umd.js\"></script><style>\n\t\t.tippy-box[data-theme~='tomato'] {\n\t\t\tbackground-color: black;\n\t\t\tcolor:#EBEBEB;\n\t\t\tfont-family: 'ArchivoSemiCondensed';\n\t\t\tborder-radius: 10px;\n\t\t\tbox-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);\n\t\t\tpadding: 4px;\n\t\t\ttext-align: start;\n\t\t}\n\t</style><script>\n\t\ttippy('[data-tippy-content]', {\n\t\t\t\tallowHTML: true,\n\t\t\t\ttheme: 'tomato',\n\t\t\t\tanimation: 'perspective-extreme',\n\t\t\t\tinteractive: true,\n\t\t\t\tarrow: false,\n\t\t});\n\t</script>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n\t\t.tippy-box[data-theme~='tomato'] {\n\t\t\tbackground-color: black;\n\t\t\tcolor:#EBEBEB;\n\t\t\tfont-family: 'ArchivoSemiCondensed';\n\t\t\tborder-radius: 10px;\n\t\t\tbox-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);\n\t\t\tpadding: 4px;\n\t\t\ttext-align: start;\n\t\t}\n\t</style><script src=\"/public/assets/scripts/popper.min.js\"></script><script src=\"/public/assets/scripts/tippy-bundle.umd.js\"></script><script>\n\t\ttippy('[data-tippy-content]', {\n\t\t\t\tallowHTML: true,\n\t\t\t\ttheme: 'tomato',\n\t\t\t\tanimation: 'perspective-extreme',\n\t\t\t\tinteractive: true,\n\t\t\t\tarrow: false,\n\t\t});\n\t</script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -222,7 +222,7 @@ func scriptForShowPagw() templ.Component {
 
 var (
 	metadataExt = extentionDocs(
-		"Metadata & Metadata pointer Extension",
+		"Metadata & Metadata Pointer Extension",
 		"enhance the interoperability of tokens across different applications and platforms by standardizing how metadata is associated and accessed",
 		"https://solana.com/developers/courses/token-extensions/token-extensions-metadata")
 
@@ -242,12 +242,12 @@ var (
 		"https://solana.com/developers/courses/token-extensions/close-mint")
 
 	groupExt = extentionDocs(
-		"Group & Group pointer Extension",
+		"Group & Group Pointer Extension",
 		"token groups' are commonly used to implement NFT collections.",
 		"https://solana.com/developers/courses/token-extensions/group-member")
 
 	memberExt = extentionDocs(
-		"Member & Member pointer Extension",
+		"Member & Member Pointer Extension",
 		"token members' are also commonly used to implement NFT collections, allowing to save member data within the mint itself",
 		"https://solana.com/developers/courses/token-extensions/group-member")
 
@@ -291,7 +291,7 @@ func extentionDocs(extName, extDocs, extUrl string) string {
 	return fmt.Sprintf(`
 		The <b class="bg-gradient-to-r from-[#AD6AFF_0%%] to-[#12DB88_100%%] bg-clip-text text-transparent text-nowrap">%s</b>
 		%s
-		<br/><br/> see here for <a href="%s" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-[#AD6AFF_0%%] to-[#12DB88_100%%] bg-clip-text text-transparent text-nowrap">more information  <img class="inline w-2 aspect-square" src="/public/assets/svg/open-in-new-tab.svg"/></a>`,
+		<br/><br/> see here for <a href="%s" target=_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-[#AD6AFF_0%%] to-[#12DB88_100%%] bg-clip-text text-transparent text-nowrap">more information  <img class="inline w-2 aspect-square" src="/public/assets/svg/open-in-new-tab.svg"/></a>`,
 		extName, extDocs, extUrl)
 }
 

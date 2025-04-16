@@ -23,9 +23,11 @@ func (a *App) Routes() *chi.Mux {
 	// r.NotFound()
 
 	r.Get("/", a.indexPage)
-	r.Get("/showTokenExtensions", a.showTokenExtensions)
 	r.Get("/mintExtensions", a.mintExtensions)
+	r.Get("/showTokenExtensions", a.showTokenExtensions)
+	r.Post("/showTokenExtensions", a.showTokenExtensions)
 	r.Get("/showMintExtensions", a.showMintExtensions)
+	r.Post("/showMintExtensions", a.showMintExtensions)
 
 	var staticFiles = fs.FS(frontend.AssetsDir)
 	staticFs, _ := fs.Sub(staticFiles, "public")
