@@ -32,6 +32,6 @@ module.exports = {
         },
       });
     },
-    // require("daisyui"),
+    require("daisyui"),
   ],
 };

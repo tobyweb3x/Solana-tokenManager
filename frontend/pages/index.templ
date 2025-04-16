@@ -44,12 +44,11 @@ templ IndexPage(pageMain templ.Component) {
 			<script src="/public/assets/scripts/hyperscript.min.js"></script>
 			<title>Token Manager</title>
 		</head>
-		<body class="font-DM_Sans_Regular text-[#EBEBEB] bg-[#06001B] h-screen overflow-hidden">
-			<div class="w-full h-full flex">
+		<body class="font-DM_Sans_Regular text-[#EBEBEB] bg-[#06001B] flex items-stretch w-screen h-screen overflow-hidden">
 				@nav()
-				<div class="w-full h-full">
+				<div class="flex-1 flex flex-col items-stretch">
 					@header()
-					<main id="mainContent w-full h-full">
+					<main id="mainContent flex-1">
 						if pageMain == nil {
 							@Dashboard()
 						} else {
@@ -57,7 +56,6 @@ templ IndexPage(pageMain templ.Component) {
 						}
 					</main>
 				</div>
-			</div>
 		</body>
 		@dialogPageOne()
 		@dialogPageTwo()
