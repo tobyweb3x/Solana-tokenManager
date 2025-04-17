@@ -203,7 +203,7 @@ func extensionWithSwitchExtensionButton(extension, href string) templ.Component 
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "\" hx-target=\"#mainContent\" hx-swap=\"innerHTML\" hx-push-url=\"true\" class=\"gradientRadio\t flex justify-center items-center gap-2 py-[1.031rem] px-[2.375rem] max-lg:px-4 rounded-3xl border-[1px] border-transparent border-solid\"><img src=\"/public/assets/svg/Swap.svg\" class=\"w-6 max-lg:w-4 aspect-square\"><p class=\"text-[#FFFFFF] text-nowrap text-sm max-lg:text-xs text-center tracking-[0.001em] font-bold\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "\" hx-target=\"#mainContent\" hx-swap=\"innerHTML\" hx-push-url=\"true\" class=\"gradientRadio flex justify-center items-center gap-2 py-[1.031rem] px-[2.375rem] max-lg:px-4 rounded-3xl border-[1px] border-transparent border-solid\"><img src=\"/public/assets/svg/Swap.svg\" class=\"w-6 max-lg:w-4 aspect-square\"><p class=\"text-[#FFFFFF] text-nowrap text-sm max-lg:text-xs text-center tracking-[0.001em] font-bold\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -166,7 +166,7 @@ templ backButtonAndTextDirection(direction []DirectionParams) {
 templ extensionWithSwitchExtensionButton(extension, href string) {
 	<div class="w-full flex justify-between items-center gap-1 pr-10 cursor-pointer">
 		<p class="text-[2.25rem] leading-[2.75rem] text-left font-normal font-ArchivoSemiCondensed_SemiBold">{ fmt.Sprintf("%s Account Extensions", extension) }</p>
-		<a hx-get={ href } hx-target="#mainContent" hx-swap="innerHTML" hx-push-url="true" class="gradientRadio	 flex justify-center items-center gap-2 py-[1.031rem] px-[2.375rem] max-lg:px-4 rounded-3xl border-[1px] border-transparent border-solid">
+		<a hx-get={ href } hx-target="#mainContent" hx-swap="innerHTML" hx-push-url="true" class="gradientRadio flex justify-center items-center gap-2 py-[1.031rem] px-[2.375rem] max-lg:px-4 rounded-3xl border-[1px] border-transparent border-solid">
 			<img
 				src="/public/assets/svg/Swap.svg"
 				class="w-6 max-lg:w-4 aspect-square"

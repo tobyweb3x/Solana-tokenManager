@@ -38,25 +38,23 @@ templ IndexPage(pageMain templ.Component) {
 			// <script async type="module">
 			// 	import {createRandomKeyPair} from '/public/assets/dist/index.js';
 			// </script>
-			<script src="/public/assets/scripts/index.js"></script>
-			<script src="/public/assets/scripts/swiper-bundle.min.js"></script>
 			<script src="/public/assets/scripts/htmx.min.js"></script>
 			<script src="/public/assets/scripts/hyperscript.min.js"></script>
+			<script src="/public/assets/scripts/index.js"></script>
+			<script src="/public/assets/scripts/swiper-bundle.min.js"></script>
 			<title>Token Manager</title>
 		</head>
-		<body class="font-DM_Sans_Regular text-[#EBEBEB] bg-[#06001B] h-screen overflow-hidden">
-			<div class="w-full h-full flex">
-				@nav()
-				<div class="w-full h-full">
-					@header()
-					<main id="mainContent w-full h-full">
-						if pageMain == nil {
-							@Dashboard()
-						} else {
-							@pageMain
-						}
-					</main>
-				</div>
+		<body class="font-DM_Sans_Regular text-[#EBEBEB] bg-[#06001B] w-screen h-screen overflow-hidden flex items-stretch">
+			@nav()
+			<div class="flex-1 flex flex-col items-stretch">
+				@header()
+				<main id="mainContent" class="flex-1 flex flex-col">
+					if pageMain == nil {
+						@Dashboard()
+					} else {
+						@pageMain
+					}
+				</main>
 			</div>
 		</body>
 		@dialogPageOne()

@@ -24,7 +24,6 @@ func (a *App) indexPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func (a *App) showMintExtensions(w http.ResponseWriter, r *http.Request) {
-
 	var err error
 
 	if r.Method == http.MethodPost {

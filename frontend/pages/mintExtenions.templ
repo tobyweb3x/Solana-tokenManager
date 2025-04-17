@@ -8,7 +8,7 @@ templ MintExtensionsPartial() {
 			{Direction: "Select Mint Extenisons"},
 		},
 	)
-	<div class="grid grid-cols-[55%_45%] gap-6 pr-10 h-full w-full">
+	<div class="pb-4 flex items-stretch gap-4 flex-1">
 		@extensionsView()
 		@asideElement()
 		<style>
@@ -46,7 +46,7 @@ templ swipperScript() {
 }
 
 templ extensionsView() {
-	<section class="h-full">
+	<section class="flex-1 flex flex-col items-stretch">
 		<section class="flex flex-col gap-[1.489rem] font-normal">
 			<p
 				class="text-white font-ArchivoSemiCondensed_SemiBold text-[2.25rem] leading-[2.75rem] text-left"
@@ -61,28 +61,28 @@ templ extensionsView() {
 				token22
 			</p>
 		</section>
-		<section
-			id="swiper"
-			class="swiper mt-[2.481rem]"
-		>
-			<div class="swiper-wrapper flex items-center gap-2">
-				for i := range mintExtensions {
-					if lastItem := len(mintExtensions) -1; i != lastItem {
-						<div class="swiper-slide text-[#EBEBEB] font-bold text-[0.744rem] leading-[0.901rem] text-left">
-							<button class="gradientRadio rounded-3xl py-[1.215rem] px-[2.063rem] text-nowrap">
-								{ mintExtensions[i].ExtensionName }
-							</button>
-						</div>
-					} else {
-						<div class="swiper-slide text-[#EBEBEB] font-bold text-[0.744rem] leading-[0.901rem] text-left mr-[4.50rem]">
-							<button class="gradientRadio rounded-3xl py-[1.215rem] px-[2.063rem] text-nowrap">
-								{ mintExtensions[i].ExtensionName }
-							</button>
-						</div>
-					}
-				}
-			</div>
-		</section>
+		// <section
+		// 	id="swiper"
+		// 	class="swiper mt-[2.481rem]"
+		// >
+		// 	<div class="swiper-wrapper flex items-center gap-2">
+		// 		for i := range mintExtensions {
+		// 			if lastItem := len(mintExtensions) -1; i != lastItem {
+		// 				<div class="swiper-slide text-[#EBEBEB] font-bold text-[0.744rem] leading-[0.901rem] text-left">
+		// 					<button class="gradientRadio rounded-3xl py-[1.215rem] px-[2.063rem] text-nowrap">
+		// 						{ mintExtensions[i].ExtensionName }
+		// 					</button>
+		// 				</div>
+		// 			} else {
+		// 				<div class="swiper-slide text-[#EBEBEB] font-bold text-[0.744rem] leading-[0.901rem] text-left mr-[4.50rem]">
+		// 					<button class="gradientRadio rounded-3xl py-[1.215rem] px-[2.063rem] text-nowrap">
+		// 						{ mintExtensions[i].ExtensionName }
+		// 					</button>
+		// 				</div>
+		// 			}
+		// 		}
+		// 	</div>
+		// </section>
 		<section
 			class="swipers-Btn mt-[1.03rem] mr-[0.263rem] ml-auto flex justify-center items-center gap-[0.6801rem] w-fit"
 		>
@@ -102,96 +102,98 @@ templ extensionsView() {
 			</button>
 		</section>
 		<section
-			class="mt-[1.503rem] rounded-3xl border-[0.019rem] border-solid border-[#A3A3A3] p-4 flex justify-between gap-2 h-3/4 overflow-y-auto"
+			class="mt-[1.503rem] rounded-3xl border-[0.019rem] border-solid border-[#A3A3A3] p-4 flex flex-1 justify-between gap-2"
 		>
-			<div class="">
-				<p class="font-medium text-xl text-nowrap">Metadata Extension</p>
-				<form action="" class="mt-4">
-					<fieldset class="fieldset bg-base-100 border border-base-300 rounded-box max-w-max px-2">
-						<label class="fieldset-label">
-							<input type="checkbox" class="toggle toggle-xl gradientRadio toggle-primary peer"/>
-							<span class="transition-colors peer-checked:text-green-200 peer-checked:text-transparent peer-checked:text-clip">
-								Enable metadata extension
-							</span>
-						</label>
-					</fieldset>
-					<div class="mt-2 flex flex-col gap-3">
-						<label class="input">
-							<input type="text" placeholder="" class="input input-xs"/>
-							<span class="label">Update Authority</span>
-						</label>
-						<label class="input">
-							<input type="text" placeholder="" class="input input-xs"/>
-							<span class="label">Mint</span>
-						</label>
-						<label class="input">
-							<input type="text" placeholder="" class="input input-xs"/>
-							<span class="label">Name</span>
-						</label>
-						<label class="input">
-							<input type="text" placeholder="" class="input input-xs"/>
-							<span class="label">Symbol</span>
-						</label>
-						<label class="input">
-							<input type="text" placeholder="" class="input input-xs"/>
-							<span class="label">URI</span>
-						</label>
-						<div class="flex gap-3">
-							<label class="input">
-								<input type="text" placeholder="" class="input input-xs"/>
-								<span class="label">Key</span>
-							</label>
-							<label class="input">
-								<input type="text" placeholder="" class="input input-xs"/>
-								<span class="label">Value</span>
-							</label>
-						</div>
-						<button type="button" class="btn btn-accent">Add more metadata</button>
-					</div>
-				</form>
-			</div>
-			<div class="">
-				<p class="font-medium text-xl text-nowrap">Metadata Pointer Extension</p>
-				<form action="" class="mt-4">
-					<fieldset class="fieldset bg-base-100 border border-base-300 rounded-box max-w-max px-2">
-						<label class="fieldset-label">
-							<input type="checkbox" class="toggle toggle-xl gradientRadio toggle-primary peer"/>
-							<span class="transition-colors peer-checked:text-green-200 peer-checked:text-transparent peer-checked:text-clip">
-								Enable metadata extension
-							</span>
-						</label>
-					</fieldset>
-					<div class="mt-2 flex flex-col gap-3">
-						<label class="input">
-							<input type="text" placeholder="" class="input input-xs"/>
-							<span class="label">Update Authority</span>
-						</label>
-						<label class="input">
-							<input type="text" placeholder="" class="input input-xs"/>
-							<span class="label">Update Authority</span>
-						</label>
-						<label class="input">
-							<input type="text" placeholder="" class="input input-xs"/>
-							<span class="label">Update Authority</span>
-						</label>
-						<label class="input">
-							<input type="text" placeholder="" class="input input-xs"/>
-							<span class="label">Update Authority</span>
-						</label>
-						<label class="input">
-							<input type="text" placeholder="" class="input input-xs"/>
-							<span class="label">Update Authority</span>
-						</label>
-					</div>
-				</form>
-			</div>
+			// <div class="flex-1 flex overflow-y-scroll max-h-[calc(-363.33px_+_57.94vw)]">
+			// 	<div class="">
+			// 		<p class="font-medium text-xl text-nowrap">Metadata Extension</p>
+			// 		<form action="" class="mt-4">
+			// 			<fieldset class="fieldset bg-base-100 border border-base-300 rounded-box max-w-max px-2">
+			// 				<label class="fieldset-label">
+			// 					<input type="checkbox" class="toggle toggle-xl gradientRadio toggle-primary peer"/>
+			// 					<span class="transition-colors peer-checked:text-green-200 peer-checked:text-transparent peer-checked:text-clip">
+			// 						Enable metadata extension
+			// 					</span>
+			// 				</label>
+			// 			</fieldset>
+			// 			<div class="mt-2 flex flex-col gap-3">
+			// 				<label class="input">
+			// 					<input type="text" placeholder="" class="input input-xs"/>
+			// 					<span class="label">Update Authority</span>
+			// 				</label>
+			// 				<label class="input">
+			// 					<input type="text" placeholder="" class="input input-xs"/>
+			// 					<span class="label">Mint</span>
+			// 				</label>
+			// 				<label class="input">
+			// 					<input type="text" placeholder="" class="input input-xs"/>
+			// 					<span class="label">Name</span>
+			// 				</label>
+			// 				<label class="input">
+			// 					<input type="text" placeholder="" class="input input-xs"/>
+			// 					<span class="label">Symbol</span>
+			// 				</label>
+			// 				<label class="input">
+			// 					<input type="text" placeholder="" class="input input-xs"/>
+			// 					<span class="label">URI</span>
+			// 				</label>
+			// 				<div class="flex gap-3">
+			// 					<label class="input">
+			// 						<input type="text" placeholder="" class="input input-xs"/>
+			// 						<span class="label">Key</span>
+			// 					</label>
+			// 					<label class="input">
+			// 						<input type="text" placeholder="" class="input input-xs"/>
+			// 						<span class="label">Value</span>
+			// 					</label>
+			// 				</div>
+			// 				<button type="button" class="btn btn-accent">Add more metadata</button>
+			// 			</div>
+			// 		</form>
+			// 	</div>
+			// 	<div class="">
+			// 		<p class="font-medium text-xl text-nowrap">Metadata Pointer Extension</p>
+			// 		<form action="" class="mt-4">
+			// 			<fieldset class="fieldset bg-base-100 border border-base-300 rounded-box max-w-max px-2">
+			// 				<label class="fieldset-label">
+			// 					<input type="checkbox" class="toggle toggle-xl gradientRadio toggle-primary peer"/>
+			// 					<span class="transition-colors peer-checked:text-green-200 peer-checked:text-transparent peer-checked:text-clip">
+			// 						Enable metadata extension
+			// 					</span>
+			// 				</label>
+			// 			</fieldset>
+			// 			<div class="mt-2 flex flex-col gap-3">
+			// 				<label class="input">
+			// 					<input type="text" placeholder="" class="input input-xs"/>
+			// 					<span class="label">Update Authority</span>
+			// 				</label>
+			// 				<label class="input">
+			// 					<input type="text" placeholder="" class="input input-xs"/>
+			// 					<span class="label">Update Authority</span>
+			// 				</label>
+			// 				<label class="input">
+			// 					<input type="text" placeholder="" class="input input-xs"/>
+			// 					<span class="label">Update Authority</span>
+			// 				</label>
+			// 				<label class="input">
+			// 					<input type="text" placeholder="" class="input input-xs"/>
+			// 					<span class="label">Update Authority</span>
+			// 				</label>
+			// 				<label class="input">
+			// 					<input type="text" placeholder="" class="input input-xs"/>
+			// 					<span class="label">Update Authority</span>
+			// 				</label>
+			// 			</div>
+			// 		</form>
+			// 	</div>
+			// </div>
 		</section>
 	</section>
 }
 
 templ asideElement() {
 	<aside
-		class="rounded-2xl border-[0.019rem] border-solid border-[#A3A3A3]"
+		class="flex-1 rounded-2xl border-[0.019rem] border-solid border-[#A3A3A3]"
 	>
 		<div></div>
 	</aside>
