@@ -32,9 +32,6 @@ importers:
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
-      polished:
-        specifier: ^4.3.1
-        version: 4.3.1
       tailwindcss:
         specifier: ^4.1.4
         version: 4.1.4
@@ -1033,10 +1030,6 @@ packages:
   pify@3.0.0:
     resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
     engines: {node: '>=4'}
-
-  polished@4.3.1:
-    resolution: {integrity: sha512-OBatVyC/N7SCW/FaDHrSd+vn0o5cS855TOmYi4OkdWUMSJCET/xip//ch8xGUvtr3i44X9LVyWwQlRMTN3pwSA==}
-    engines: {node: '>=10'}
 
   possible-typed-array-names@1.0.0:
     resolution: {integrity: sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==}
@@ -2265,10 +2258,6 @@ snapshots:
   pidtree@0.3.1: {}
 
   pify@3.0.0: {}
-
-  polished@4.3.1:
-    dependencies:
-      '@babel/runtime': 7.25.4
 
   possible-typed-array-names@1.0.0: {}
 
