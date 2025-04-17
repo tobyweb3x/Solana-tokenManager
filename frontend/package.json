@@ -24,6 +24,7 @@
     "bs58": "^6.0.0",
     "daisyui": "^5.0.22",
     "npm-run-all": "^4.1.5",
+    "polished": "^4.3.1",
     "tailwindcss": "^4.1.4",
     "tippy.js": "^6.3.7"
   },

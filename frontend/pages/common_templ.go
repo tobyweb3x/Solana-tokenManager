@@ -94,7 +94,7 @@ func backButtonAndTextDirection(direction []DirectionParams) templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<section class=\"px-10 pt-6 pb-14 flex justify-between items-center\"><div class=\"flex gap-1 justify-center items-center\"><a href=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<section class=\"px-10 pt-4 pb-10 flex justify-between items-center\"><div class=\"flex gap-1 justify-center items-center\"><a href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

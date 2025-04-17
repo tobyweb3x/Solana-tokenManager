@@ -48,7 +48,7 @@ templ IndexPage(pageMain templ.Component) {
 				@nav()
 				<div class="flex-1 flex flex-col items-stretch">
 					@header()
-					<main id="mainContent flex-1">
+					<main id="mainContent" class="flex flex-1 flex-col">
 						if pageMain == nil {
 							@Dashboard()
 						} else {
